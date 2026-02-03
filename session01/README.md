@@ -1,5 +1,7 @@
 # Sesión 01 - Introducción a Java
 
+**Fecha**: 2 de Enero de 2026
+
 ## Contenido de la Sesión
 
 Esta sesión cubre los conceptos fundamentales de programación en Java, desde la instalación del entorno de desarrollo hasta la creación de programas básicos.
@@ -49,6 +51,7 @@ class NombreClase {
 ```
 
 **Elementos clave:**
+
 - `class`: Define una clase
 - `NombreClase`: Nombre de la clase (debe coincidir con el nombre del archivo)
 - `public static void main(String[] args)`: Método principal donde comienza la ejecución
@@ -143,7 +146,7 @@ switch (i) {
 ```java
 for (int k = 0; k < 20; k++) {
     System.out.println("La k es " + k);
-    
+
     if (esPar(k)) {
         System.out.println("La k es par");
     }
@@ -250,6 +253,7 @@ public static int division(int a, int b) {
 ```
 
 **Componentes de una función:**
+
 - `public static`: Modificadores de acceso y tipo
 - `int` / `boolean` / `void`: Tipo de retorno
 - `nombreFuncion`: Nombre de la función
@@ -263,6 +267,7 @@ public static int division(int a, int b) {
 Ver código completo en: `helloworld/src/Main.java`
 
 Este programa demuestra:
+
 - Declaración de variables de tipos primitivos
 - Uso de System.out.println y System.out.print
 - Estructuras de control (if, switch, while, for)
@@ -273,11 +278,13 @@ Este programa demuestra:
 Ver código completo en: `calculadora/src/Main.java`
 
 Una calculadora interactiva que:
+
 1. Solicita dos números al usuario
 2. Pregunta qué operación realizar (suma, resta, multiplicación, división)
 3. Muestra el resultado usando funciones específicas para cada operación
 
 **Ejemplo de ejecución:**
+
 ```
 Bienvenido a la calculadora
 Introduce un numero:
@@ -294,6 +301,7 @@ S
 ## Resumen
 
 En esta sesión aprendimos:
+
 - ✅ Conceptos básicos de Java y su ecosistema
 - ✅ Instalación y configuración de IntelliJ IDEA
 - ✅ Estructura de un programa Java
