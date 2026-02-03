@@ -76,6 +76,7 @@ Java tiene 8 tipos de datos primitivos:
 ```java
 // Enteros
 byte b = 0;        // 8 bits  (-128 a 127)
+short s = 100;     // 16 bits (-32,768 a 32,767)
 int i = 0;         // 32 bits (más común)
 long w = 56L;      // 64 bits (sufijo 'L')
 
@@ -90,9 +91,11 @@ boolean flag = true;  // true o false
 char c = 'A';      // Un solo carácter Unicode
 ```
 
-**Clases Wrapper**: Cada tipo primitivo tiene una clase equivalente (Integer, Long, Float, Double, Boolean, Character, Byte).
+**Clases Wrapper**: Cada tipo primitivo tiene una clase equivalente (Byte, Short, Integer, Long, Float, Double, Boolean, Character).
 
 ```java
+Byte b2 = 10;
+Short s2 = 100;
 Integer i2 = 45;       // Autoboxing: int a Integer
 Long w2 = 56L;
 Boolean flag2 = Boolean.TRUE;
@@ -211,7 +214,12 @@ int numero = lectorDeTeclado.nextInt();
 // Leer un String
 System.out.println("Introduce texto:");
 String texto = lectorDeTeclado.next();
+
+// Importante: Cerrar el Scanner para liberar recursos
+lectorDeTeclado.close();
 ```
+
+**Nota**: Es una buena práctica cerrar el Scanner después de usarlo, o usar try-with-resources para gestión automática de recursos.
 
 ## 9. Funciones (Métodos)
 
@@ -235,6 +243,8 @@ public static int multiplicacion(int a, int b) {
 }
 
 public static int division(int a, int b) {
+    // Nota: Esta función lanzará ArithmeticException si b es 0
+    // En producción, se debería validar: if (b == 0) return 0; o lanzar una excepción controlada
     return a / b;
 }
 ```
