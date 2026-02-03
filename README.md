@@ -2,7 +2,7 @@
 
 ## Sobre la Asignatura
 
-**Programación Estructurada e Introducción (PEI)** es una asignatura fundamental que introduce los conceptos básicos de la programación orientada a objetos utilizando Java. En este repositorio encontrarás todos los apuntes y proyectos de cada sesión, desde los fundamentos del lenguaje hasta los principios clave de la POO (Programación Orientada a Objetos).
+**Programación para Entornos Interactivos (PEI)** es una asignatura fundamental que introduce los conceptos básicos de la programación orientada a objetos utilizando Java. En este repositorio encontrarás todos los apuntes y proyectos de cada sesión, desde los fundamentos del lenguaje hasta los principios clave de la POO (Programación Orientada a Objetos).
 
 ---
 
