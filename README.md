@@ -12,6 +12,7 @@
 | --- | ---------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | 1   | [Sesión 01 - Introducción a Java](session01/)              | Conceptos básicos de Java, instalación de IDE, primer programa "Hola Mundo" | [calculadora](session01/calculadora/), [helloworld](session01/helloworld/) |
 | 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [Gimnasio](session02/Gimnasio/)                                            |
+| 3   | [Sesión 03 - Encapsulamiento y Principios de Diseño](session03/) | Modificadores de acceso, getters/setters, principios GRASP, static, toString() | [pokedex](session03/pokedex/), [gimnasio](session03/gimnasio/), [mercado](session03/mercado/) |
 
 ---
 
@@ -24,7 +25,12 @@ PEI-2526/
 │   ├── README.md
 │   ├── calculadora/    # Proyecto: Calculadora básica
 │   └── helloworld/     # Proyecto: Programa Hola Mundo
-└── session02/          # Programación Orientada a Objetos
+├── session02/          # Programación Orientada a Objetos
+│   ├── README.md
+│   └── Gimnasio/       # Proyecto: Sistema de gestión de gimnasio
+└── session03/          # Encapsulamiento y Principios de Diseño
     ├── README.md
-    └── Gimnasio/       # Proyecto: Sistema de gestión de gimnasio
+    ├── pokedex/        # Proyecto: Gestión de Pokémon con encapsulamiento
+    ├── gimnasio/       # Proyecto: Gimnasio mejorado con bajo acoplamiento
+    └── mercado/        # Proyecto: Sistema de productos con static
 ```
