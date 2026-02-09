@@ -65,11 +65,11 @@ public void setNombreAtributo(TipoAtributo nombreAtributo) {
 ```java
 public class Pokemon {
     private String nombre;
-    
+
     public String getNombre() {
         return nombre;
     }
-    
+
     public void setNombre(String nombre) {
         if (nombre.equals("")) {
             this.nombre = "NO SE PUEDE VACIO";
@@ -105,7 +105,7 @@ La clase Pokemon debe ser responsable de su propia lógica:
 public class Pokemon {
     private Integer nivel;
     private Integer vida;
-    
+
     public void subirNivel() {
         this.nivel += 1;
         this.vida += 100;
@@ -114,6 +114,7 @@ public class Pokemon {
 ```
 
 **Beneficios:**
+
 - La lógica está centralizada en un solo lugar
 - Más fácil de mantener y modificar
 - Reduce duplicación de código
@@ -150,6 +151,7 @@ System.out.println(p1.getInformation());
 ```
 
 **Beneficios:**
+
 - La clase es reutilizable en diferentes contextos (consola, GUI, web, tests, etc.)
 - Mayor flexibilidad para cambios futuros
 - Facilita las pruebas unitarias
@@ -182,6 +184,7 @@ public static void mostrarPorPantallaLasPersonas(Persona a, Persona b, Persona c
 ```
 
 **Beneficios:**
+
 - Si necesitamos cambiar cómo se muestran las personas, solo lo hacemos en un lugar
 - Reduce errores
 - Código más limpio y mantenible
@@ -195,7 +198,7 @@ public class Producto {
     private String nombre;
     private Float precio;
     private Long id;
-    
+
     @Override
     public String toString() {
         return nombre + " " + precio + " " + id;
@@ -208,6 +211,7 @@ System.out.println(p1);  // Llama automáticamente a toString()
 ```
 
 **Ventajas de toString():**
+
 - Java lo llama automáticamente al imprimir un objeto
 - Es una convención estándar que facilita el debugging
 - Más elegante que métodos personalizados como `getInformation()`
@@ -222,7 +226,7 @@ La palabra clave `static` se usa para crear miembros (atributos o métodos) que 
 public class Producto {
     private Long id;
     public static Long contador = 0L;  // Variable compartida por todas las instancias
-    
+
     public Producto(String nombre, String descripcion, Float precio, Integer stock, Date caducidad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -235,6 +239,7 @@ public class Producto {
 ```
 
 **Características de atributos static:**
+
 - Existe una única copia compartida por todas las instancias de la clase
 - Se puede acceder sin crear una instancia: `Producto.contador`
 - Útil para contadores, configuraciones globales, constantes, etc.
@@ -281,7 +286,7 @@ public class Pokemon {
         if (name.equals("")) {
             this.name = "NO SE PUEDE VACIO";
         } else {
-            this.name = nombre;
+            this.name = name;
         }
     }
 
@@ -297,6 +302,7 @@ public class Pokemon {
 ```
 
 **Conceptos demostrados:**
+
 - ✅ Atributos privados para proteger los datos
 - ✅ Validación en el setter del nombre
 - ✅ Método `subirNivel()` que encapsula la lógica de subir de nivel (Experto de Información)
@@ -366,6 +372,7 @@ public class Persona {
 ```
 
 **Mejoras respecto a la Sesión 02:**
+
 - ✅ Todos los atributos son privados (incluyendo `nombre` que antes era público)
 - ✅ `getInformation()` en lugar de `muestrate()` para desacoplar de System.out
 - ✅ Los métodos de registro encapsulan la lógica de gestión de entradas/salidas
@@ -380,13 +387,13 @@ public class Main {
         Persona p3 = new Persona("Charlie", "123456789V");
 
         mostrarPorPantallaLasPersonas(p1, p2, p3);
-        
+
         p2.registrarEntrada();
         mostrarPorPantallaLasPersonas(p1, p2, p3);
-        
+
         p1.registrarEntrada();
         mostrarPorPantallaLasPersonas(p1, p2, p3);
-        
+
         p2.registrarSalida();
         mostrarPorPantallaLasPersonas(p1, p2, p3);
     }
@@ -410,7 +417,7 @@ Este proyecto introduce el concepto de variables estáticas para implementar un 
 
 ```java
 public class Producto {
-    public String nombre;
+    private String nombre;
     private String descripcion;
     private Float precio;
     private Integer stock;
@@ -435,6 +442,7 @@ public class Producto {
 ```
 
 **Conceptos demostrados:**
+
 - ✅ Variable estática `contador` compartida por todas las instancias
 - ✅ Auto-incremento del contador en el constructor
 - ✅ Uso de `toString()` para representación de objetos
@@ -454,15 +462,46 @@ System.out.println(Producto.contador);  // 2
 System.out.println(p2);
 ```
 
+#### Entrada por consola con Scanner
+
+En la demo se añadió interacción con el usuario para crear productos por consola usando `Scanner`:
+
+```java
+Scanner lector = new Scanner(System.in);
+
+System.out.print("Introduce un producto (nombre): ");
+String lecturaNombre = lector.nextLine();
+
+System.out.print("Introduce un producto (descripcion): ");
+String lecturaDescripcion = lector.nextLine();
+
+System.out.print("Introduce un producto (precio): ");
+Float lecturaPrecio = lector.nextFloat();
+
+System.out.print("Introduce un producto (stock): ");
+Integer lecturaStock = lector.nextInt();
+
+Producto p1 = new Producto(
+    lecturaNombre,
+    lecturaDescripcion,
+    lecturaPrecio,
+    lecturaStock,
+    null
+);
+
+System.out.println(p1);
+```
+
 ## 7. Comparación: Sesión 02 vs Sesión 03
 
-| Aspecto                    | Sesión 02                              | Sesión 03                                   |
-| -------------------------- | -------------------------------------- | ------------------------------------------- |
-| **Modificadores de acceso** | Mezcla de public y private            | Todos los atributos privados                |
-| **Métodos de información**  | `muestrate()` acoplado a System.out   | `getInformation()` o `toString()`           |
-| **Lógica de negocio**       | Fuera de la clase (usar setters)      | Dentro de la clase (Experto de Información) |
-| **Reutilización de código** | Código repetido                       | Funciones extraídas (DRY)                   |
-| **Variables de clase**      | No se usaron                          | static para contadores                      |
+| Aspecto                     | Sesión 02                           | Sesión 03                                   |
+| --------------------------- | ----------------------------------- | ------------------------------------------- |
+| **Modificadores de acceso** | Mezcla de public y private          | Todos los atributos privados                |
+| **Métodos de información**  | `muestrate()` acoplado a System.out | `getInformation()` o `toString()`           |
+| **Lógica de negocio**       | Fuera de la clase (usar setters)    | Dentro de la clase (Experto de Información) |
+| **Reutilización de código** | Código repetido                     | Funciones extraídas (DRY)                   |
+| **Variables de clase**      | No se usaron                        | static para contadores                      |
+| **Entrada por consola**     | No se trabajó                       | Scanner para crear productos                |
 
 ## Resumen
 
@@ -475,12 +514,13 @@ En esta sesión aprendimos:
 - ✅ **DRY**: Extraer código repetido en funciones reutilizables
 - ✅ **toString()**: Método estándar de Java para representación de objetos
 - ✅ **static**: Variables y métodos que pertenecen a la clase, no a instancias individuales
+- ✅ **Scanner**: Entrada por consola para crear productos en tiempo real
 - ✅ Tres proyectos prácticos: Pokédex, Gimnasio mejorado, y Mercado
 
 ## Recursos Adicionales
 
 - [Documentación oficial de Java - Encapsulamiento](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html)
-- [Principios GRASP](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)) - Information Expert y Low Coupling
+- [Principios GRASP](<https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)>) - Information Expert y Low Coupling
 - [Don't Repeat Yourself (DRY)](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 - [Static en Java](https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html)
 - [El método toString()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--)

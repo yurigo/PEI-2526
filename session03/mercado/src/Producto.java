@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class Producto {
-    public String nombre;
+    private String nombre;
     private String descripcion;
     private Float precio;
     private Integer stock;
