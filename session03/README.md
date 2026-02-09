@@ -454,33 +454,7 @@ System.out.println(Producto.contador);  // 2
 System.out.println(p2);
 ```
 
-## 7. Cómo Ejecutar los Ejemplos
-
-### Pokédex
-
-```bash
-cd session03/pokedex
-javac src/*.java
-java -cp src Main
-```
-
-### Gimnasio
-
-```bash
-cd session03/gimnasio
-javac src/*.java
-java -cp src Main
-```
-
-### Mercado
-
-```bash
-cd session03/mercado
-javac src/*.java
-java -cp src Main
-```
-
-## 8. Comparación: Sesión 02 vs Sesión 03
+## 7. Comparación: Sesión 02 vs Sesión 03
 
 | Aspecto                    | Sesión 02                              | Sesión 03                                   |
 | -------------------------- | -------------------------------------- | ------------------------------------------- |
@@ -502,24 +476,6 @@ En esta sesión aprendimos:
 - ✅ **toString()**: Método estándar de Java para representación de objetos
 - ✅ **static**: Variables y métodos que pertenecen a la clase, no a instancias individuales
 - ✅ Tres proyectos prácticos: Pokédex, Gimnasio mejorado, y Mercado
-
-## Ejercicio para Casa
-
-Mejora uno de tus proyectos de la Sesión 02 aplicando los conceptos aprendidos:
-
-1. **Asegúrate de que todos los atributos sean privados**
-2. **Crea getters y setters apropiados** con validación cuando sea necesario
-3. **Aplica el principio del Experto de Información**: Si tienes lógica que manipula múltiples atributos, crea métodos específicos en lugar de usar setters directamente
-4. **Aplica Bajo Acoplamiento**: Reemplaza métodos como `muestrate()` con `toString()` o `getInformation()`
-5. **Aplica DRY**: Si tienes código repetido, extráelo en métodos reutilizables
-6. **Bonus**: Añade una variable `static` si tiene sentido (por ejemplo, un contador de instancias)
-
-**Ejemplo de mejora:**
-
-Si tienes una clase `CuentaBancaria`:
-- Crea un método `transferir(CuentaBancaria destino, double monto)` en lugar de usar getters y setters
-- Cambia `mostrarInformacion()` por `toString()`
-- Usa `static long contadorCuentas` para asignar números de cuenta únicos
 
 ## Recursos Adicionales
 
