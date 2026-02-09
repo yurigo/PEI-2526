@@ -11,7 +11,7 @@
 | #   | Sesión                                                     | Temas                                                                       | Proyecto                                                                   |
 | --- | ---------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | 1   | [Sesión 01 - Introducción a Java](session01/)              | Conceptos básicos de Java, instalación de IDE, primer programa "Hola Mundo" | [calculadora](session01/calculadora/), [helloworld](session01/helloworld/) |
-| 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [Gimnasio](session02/Gimnasio/)                                            |
+| 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [gimnasio](session02/gimnasio/)                                            |
 | 3   | [Sesión 03 - Encapsulamiento y Principios de Diseño](session03/) | Modificadores de acceso, getters/setters, principios GRASP, static, toString() | [pokedex](session03/pokedex/), [gimnasio](session03/gimnasio/), [mercado](session03/mercado/) |
 
 ---
