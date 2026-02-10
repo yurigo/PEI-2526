@@ -13,6 +13,7 @@
 | 1   | [Sesión 01 - Introducción a Java](session01/)              | Conceptos básicos de Java, instalación de IDE, primer programa "Hola Mundo" | [calculadora](session01/calculadora/), [helloworld](session01/helloworld/) |
 | 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [gimnasio](session02/gimnasio/)                                            |
 | 3   | [Sesión 03 - Encapsulamiento y Principios de Diseño](session03/) | Modificadores de acceso, getters/setters, principios GRASP, static, toString() | [pokedex](session03/pokedex/), [gimnasio](session03/gimnasio/), [mercado](session03/mercado/) |
+| 4   | [Sesión 04 - Colecciones y Lectura de Archivos](session04/) | ArrayList, FileReader, BufferedReader, try/catch, manejo de excepciones | [mercado-con-arraylist](session04/mercado-con-arraylist/), [mercado-con-ficheros](session04/mercado-con-ficheros/) |
 
 ---
 
@@ -28,9 +29,13 @@ PEI-2526/
 ├── session02/          # Programación Orientada a Objetos
 │   ├── README.md
 │   └── Gimnasio/       # Proyecto: Sistema de gestión de gimnasio
-└── session03/          # Encapsulamiento y Principios de Diseño
+├── session03/          # Encapsulamiento y Principios de Diseño
+│   ├── README.md
+│   ├── pokedex/        # Proyecto: Gestión de Pokémon con encapsulamiento
+│   ├── gimnasio/       # Proyecto: Gimnasio mejorado con bajo acoplamiento
+│   └── mercado/        # Proyecto: Sistema de productos con static
+└── session04/          # Colecciones y Lectura de Archivos
     ├── README.md
-    ├── pokedex/        # Proyecto: Gestión de Pokémon con encapsulamiento
-    ├── gimnasio/       # Proyecto: Gimnasio mejorado con bajo acoplamiento
-    └── mercado/        # Proyecto: Sistema de productos con static
+    ├── mercado-con-arraylist/  # Proyecto: Productos con ArrayList
+    └── mercado-con-ficheros/   # Proyecto: Lectura de productos desde CSV
 ```
