@@ -505,27 +505,14 @@ En esta sesión aprendimos:
 
 ## Ejercicio para Casa
 
-Crear un programa que:
+Completa el mercado para que:
 
-1. **Lea datos desde un archivo CSV** de tu elección (por ejemplo, estudiantes, libros, películas)
+1. **Lea datos desde un archivo CSV**
 2. **Almacene los datos en un ArrayList** de objetos de una clase que tú definas
 3. **Permita añadir más elementos** por consola
 4. **Muestre todos los elementos** al final
 5. **Maneje correctamente las excepciones** que puedan ocurrir
-
-**Requisitos:**
-- Crear tu propia clase (no usar Producto)
-- Tener al menos 4 atributos en la clase
-- Crear un archivo CSV con al menos 3 registros iniciales
-- Implementar manejo de excepciones con try/catch
-- Usar ArrayList para almacenar los objetos
-- Permitir entrada de datos por consola
-
-**Ejemplo de ideas:**
-- Sistema de biblioteca: leer libros desde un CSV y añadir más
-- Registro de estudiantes: leer estudiantes desde un CSV y añadir más
-- Catálogo de películas: leer películas desde un CSV y añadir más
-- Lista de contactos: leer contactos desde un CSV y añadir más
+6. **Guarde el ArrayList al archivo CSV**. 
 
 ## Recursos Adicionales
 
@@ -534,3 +521,4 @@ Crear un programa que:
 - [Lectura de archivos en Java](https://docs.oracle.com/javase/tutorial/essential/io/file.html)
 - [Manejo de excepciones en Java](https://docs.oracle.com/javase/tutorial/essential/exceptions/)
 - [BufferedReader Documentation](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html)
+- [I/O Ficheros](./IO.md)
