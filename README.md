@@ -14,6 +14,7 @@
 | 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [gimnasio](session02/gimnasio/)                                            |
 | 3   | [Sesión 03 - Encapsulamiento y Principios de Diseño](session03/) | Modificadores de acceso, getters/setters, principios GRASP, static, toString() | [pokedex](session03/pokedex/), [gimnasio](session03/gimnasio/), [mercado](session03/mercado/) |
 | 4   | [Sesión 04 - Colecciones y Lectura de Archivos](session04/) | ArrayList, FileReader, BufferedReader, try/catch, manejo de excepciones | [mercado-con-arraylist](session04/mercado-con-arraylist/), [mercado-con-ficheros](session04/mercado-con-ficheros/) |
+| 5   | [Sesión 05 - Actividad 1: Sensors Biomètrics](session05/) | Primera actividad práctica: aplicación de consola con menú, procesamiento de sensores biomètricos, lectura/escritura CSV | Actividad: Sistema de gestión de medidas de sensores |
 
 ---
 
@@ -34,8 +35,10 @@ PEI-2526/
 │   ├── pokedex/        # Proyecto: Gestión de Pokémon con encapsulamiento
 │   ├── gimnasio/       # Proyecto: Gimnasio mejorado con bajo acoplamiento
 │   └── mercado/        # Proyecto: Sistema de productos con static
-└── session04/          # Colecciones y Lectura de Archivos
-    ├── README.md
-    ├── mercado-con-arraylist/  # Proyecto: Productos con ArrayList
-    └── mercado-con-ficheros/   # Proyecto: Lectura de productos desde CSV
+├── session04/          # Colecciones y Lectura de Archivos
+│   ├── README.md
+│   ├── mercado-con-arraylist/  # Proyecto: Productos con ArrayList
+│   └── mercado-con-ficheros/   # Proyecto: Lectura de productos desde CSV
+└── session05/          # Actividad 1: Sensors Biomètrics
+    └── README.md       # Enunciado de la primera actividad práctica
 ```

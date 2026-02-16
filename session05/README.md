@@ -1,237 +1,293 @@
-# Sesión 05 - Actividad
+# Sesión 05 - Actividad 1: Sensors Biomètrics
 
 **Fecha:** 16 de febrero de 2026
 
 ## Contenidos de la Sesión
 
-En esta sesión se ha presentado el enunciado de la primera actividad.
+En esta sesión se ha presentado el enunciado de la primera actividad del curso, donde aplicaremos los conocimientos adquiridos en las sesiones anteriores sobre clases, objetos, colecciones y manejo de archivos CSV.
 
-### Enunciado
+## Enunciado de la Actividad
 
-<h1 data-start="321" data-end="351">AC1 – Sensors biomètrics</h1>
-<h2 data-start="352" data-end="400">Processament de mesures de sensors
-  biomètrics</h2>
-<p data-start="402" data-end="682">En un laboratori s’estan recollint mesures de
-  sensors biomètrics (per exemple, <strong data-start="481"
-    data-end="496">temperatura</strong>, <strong data-start="498"
-    data-end="506">pols</strong>, <strong data-start="508"
-    data-end="516">SpO₂</strong>). Disposem d’un fitxer <code data-start="540"
-    data-end="553">mesures.csv</code> amb dades inicials que volem <strong
-    data-start="583" data-end="626">llegir, llistar, representar en
-    consola</strong> i <strong data-start="629" data-end="640">ampliar</strong>
-  amb noves mesures introduïdes per teclat.</p>
-<p data-start="684" data-end="753">Implementaràs la classe <code
-    data-start="708" data-end="716">Mesura</code> i una aplicació de consola amb
-  menú.</p>
-<h3 data-start="760" data-end="782"> </h3>
-<h3 data-start="760" data-end="782">1) Classe <code data-start="774"
-    data-end="782">Mesura</code></h3>
-<ul>
-  <li data-start="783" data-end="1111">
-    <p data-start="785" data-end="807"><strong data-start="785"
-        data-end="804">Atributs mínims</strong>:</p>
-    <ul>
-      <li data-start="812" data-end="874"><code data-start="812"
-          data-end="816">id</code> (enter) → <strong data-start="827"
-          data-end="846">autoincremental</strong> i <strong data-start="849"
-          data-end="857">únic</strong> per instància.</li>
-      <li data-start="879" data-end="937"><code data-start="879"
-          data-end="886">tipus</code> (String) → p. ex. <code data-start="905"
-          data-end="918">TEMPERATURA</code>, <code data-start="920"
-          data-end="926">POLS</code>, <code data-start="928"
-          data-end="934">SPO2</code>.</li>
-      <li data-start="942" data-end="987"><code data-start="942"
-          data-end="949">valor</code> (double) → p. ex. 36.7, 72.0, 97.0.</li>
-      <li data-start="992" data-end="1038"><code data-start="992"
-          data-end="1000">unitat</code> (String) → p. ex. <code
-          data-start="1019" data-end="1023">ºC</code>, <code data-start="1025"
-          data-end="1030">bpm</code>, <code data-start="1032"
-          data-end="1035">%</code>.</li>
-      <li data-start="1043" data-end="1111"><code data-start="1043"
-          data-end="1052">instant</code> (String) → format simple ISO, p. ex.
-        <code data-start="1090" data-end="1108">2025-10-01 10:30</code>.</li>
-    </ul>
-  </li>
-  <li data-start="1113" data-end="1469">
-    <p data-start="1115" data-end="1131"><strong data-start="1115"
-        data-end="1128">Requisits</strong>:</p>
-    <ul>
-      <li data-start="1136" data-end="1208">Control d’<strong data-start="1146"
-          data-end="1168">id autoincremental</strong> amb un <strong
-          data-start="1176" data-end="1194">camp de classe</strong> (<code
-          data-start="1196" data-end="1204">static</code>).</li>
-      <li data-start="1213" data-end="1236"><strong data-start="1213"
-          data-end="1233">Dos constructors</strong>:
-        <ul>
-          <li data-start="1244" data-end="1295">Amb paràmetres (<code
-              data-start="1260" data-end="1291">tipus, valor, unitat,
-              instant</code>).</li>
-          <li data-start="1303" data-end="1399">Que permeti construir a partir
-            d’una línia del CSV (ignorant les línies que comencin per <code
-              data-start="1392" data-end="1395">#</code>).</li>
-        </ul>
-      </li>
-      <li data-start="1404" data-end="1469">Mètodes bàsics (<code
-          data-start="1420" data-end="1432">toString()</code>, getters/setters
-        amb validacions).</li>
-    </ul>
-  </li>
-</ul>
-<h3 data-start="1476" data-end="1510">2) Aplicació de consola (menú)</h3>
-<p data-start="1511" data-end="1565">En engegar, el sistema carrega <code
-    data-start="1542" data-end="1555">mesures.csv</code> i mostra:</p>
-<p style="padding-left: 40px;"><code>■■■ Sensors ■■■</code><br><code>1. Llistar
-    mesures</code><br><code>2.
-    Representació ASCII</code><br><code>3. Afegir mesura</code><br><code>4.
-    Buscar per tipus</code><br><code>5. Sortir</code></p>
-<p style="padding-left: 40px;"><code>Escull una opció:</code></p>
-<h4 data-start="1700" data-end="1712">Opcions</h4>
-<ol data-start="1713" data-end="2952">
-  <li data-start="1713" data-end="1842">
-    <p data-start="1716" data-end="1779"><strong data-start="1716"
-        data-end="1735">Llistar mesures</strong><br data-start="1735"
-        data-end="1738">Mostra totes les mesures amb format:</p>
-  </li>
-</ol>
-<p style="padding-left: 80px;"><code>■ &lt;id&gt;: &lt;tipus&gt; =
-    &lt;valor&gt;&lt;unitat&gt; @ &lt;instant&gt;</code></p>
-<ol data-start="1713" data-end="2952">
-  <li data-start="1844" data-end="2355">
-    <p data-start="1847" data-end="1890"><strong data-start="1847"
-        data-end="1888">Representació ASCII (resum per tipus)</strong></p>
-    <ul data-start="1894" data-end="2355">
-      <li data-start="1894" data-end="1955">
-        <p data-start="1896" data-end="1955">Es mostra un “gràfic de barres” per
-          cada tipus de sensor.</p>
-      </li>
-      <li data-start="1959" data-end="2075">
-        <p data-start="1961" data-end="1987">Es pot triar estratègia:</p>
-      </li>
-    </ul>
-  </li>
-</ol>
-<ul>
-  <li style="list-style-type: none;">
-    <ul data-start="1894" data-end="2355">
-      <li style="list-style-type: none;">
-        <ul data-start="1894" data-end="2355">
-          <li data-start="1995" data-end="2021">Últim valor registrat, o</li>
-          <li data-start="2029" data-end="2075">Mitjana de totes les mesures
-            d’aquell tipus.</li>
-        </ul>
-      </li>
-      <li data-start="2079" data-end="2240">
-        <p data-start="2081" data-end="2099">Escala senzilla:</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li style="list-style-type: none;">
-    <ul>
-      <li style="list-style-type: none;">
-        <ul>
-          <li data-start="2107" data-end="2151">TEMPERATURA (35–40 ºC → cada 0.5
-            ºC = “#”)</li>
-          <li data-start="2159" data-end="2198">POLS (40–180 bpm → cada 10 bpm =
-            “#”)</li>
-          <li data-start="2206" data-end="2240">SPO2 (80–100 % → cada 2 % = “#”)
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-<ul>
-  <li style="list-style-type: none;">
-    <ul data-start="1894" data-end="2355">
-      <li data-start="2244" data-end="2355">
-        <p data-start="2246" data-end="2256">Exemple:</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-<p style="padding-left: 120px;"><code>T: #### (36.8 ºC)</code><br><code>P:
-    ### (68.5 bpm)</code><br><code>S: ######### (96 %)</code></p>
-<ol data-start="1713" data-end="2952">
-  <li data-start="2357" data-end="2602">
-    <p data-start="2360" data-end="2379"><strong data-start="2360"
-        data-end="2377">Afegir mesura</strong></p>
-  </li>
-</ol>
-<ul>
-  <li style="list-style-type: none;">
-    <ul>
-      <li data-start="2385" data-end="2443">Demana dades per teclat (tipus,
-        valor, unitat, instant).</li>
-      <li data-start="2449" data-end="2559">Valida: tipus vàlid (<code
-          data-start="2470" data-end="2493">TEMPERATURA|POLS|SPO2</code>), valor
-        numèric, unitat coherent, instant amb format plausible.</li>
-      <li data-start="2565" data-end="2602">Assigna id automàtic i guarda al
-        CSV.</li>
-    </ul>
-  </li>
-</ul>
-<ol data-start="1713" data-end="2952">
-  <li data-start="2604" data-end="2907">
-    <p data-start="2607" data-end="2629"><strong data-start="2607"
-        data-end="2627">Buscar per tipus</strong></p>
-  </li>
-</ol>
-<ul>
-  <li style="list-style-type: none;">
-    <ul>
-      <li data-start="2635" data-end="2699">Demana un tipus i mostra <strong
-          data-start="2660" data-end="2681">totes les mesures</strong> d’aquell
-        tipus.</li>
-      <li data-start="2705" data-end="2715">Exemple:</li>
-    </ul>
-  </li>
-</ul>
-<p style="padding-left: 120px;"><code>Tipus: TEMPERATURA</code><br><code>■ 1:
-    TEMPERATURA = 36.7ºC @ 2025-09-30 10:15</code><br><code>■ 4: TEMPERATURA =
-    37.2ºC @ 2025-09-30 11:00</code><br><code>■ 7: TEMPERATURA = 36.5ºC @
-    2025-09-30 12:20</code></p>
-<div class="overflow-y-auto p-4" dir="ltr" style="padding-left: 80px;"> </div>
-<ol data-start="1713" data-end="2952">
-  <li data-start="2909" data-end="2952">
-    <p data-start="2912" data-end="2924"><strong data-start="2912"
-        data-end="2922">Sortir</strong></p>
-    <ul data-start="2928" data-end="2952">
-      <li data-start="2928" data-end="2952">
-        <p data-start="2930" data-end="2952">Finalitza l’aplicació.</p>
-      </li>
-    </ul>
-  </li>
-</ol>
-<h3 data-start="3325" data-end="3352"> </h3>
-<h3 data-start="3325" data-end="3352">3) Fitxer <code data-start="3339"
-    data-end="3352">mesures.csv</code></h3>
-<p data-start="3353" data-end="3362">Format:</p>
-<p data-start="3353" data-end="3362" style="padding-left: 40px;">
-  <code>id,tipus,valor,unitat,instant</code></p>
-<p data-start="3402" data-end="3420">Exemple inicial:</p>
-<p data-start="3402" data-end="3420" style="padding-left: 40px;"><code>#
-    id,tipus,valor,unitat,instant</code><br><code>1,TEMPERATURA,36.7,ºC,2025-09-30
-    10:15</code><br><code>2,POLS,72,bpm,2025-09-30
-    10:16</code><br><code>3,SPO2,97,%,2025-09-30 10:17</code><br><code># aqui hi
-    ha un comentari</code><br><code>4,TEMPERATURA,37.2,ºC,2025-09-30
-    11:00</code><br><code>5,POLS,65,bpm,2025-09-30
-    11:05</code><br><code>6,SPO2,95,%,2025-09-30
-    11:10</code><br><code>7,TEMPERATURA,36.5,ºC,2025-09-30 12:20</code></p>
-<h3 data-start="3707" data-end="3724">4) Lliurament</h3>
-<p data-start="3725" data-end="3766"><strong data-start="3725"
-    data-end="3739">Data límit</strong>: 1/03/2025 a les 23:55.</p>
-<p data-start="3768" data-end="3789">Entrega un ZIP amb el projecte IntelliJ que
-  contindrà, com a minim:</p>
-<ol>
-  <li data-start="3793" data-end="3845"> <code data-start="3815"
-      data-end="3828">Mesura.java</code> i <code data-start="3831"
-      data-end="3842">Main.java</code>.</li>
-  <li data-start="3849" data-end="3897">Fitxer <code data-start="3856"
-      data-end="3869">mesures.csv</code> (dades inicials + noves).</li>
-  <li data-start="3901" data-end="3938">Diagrama UML de la classe <code
-      data-start="3927" data-end="3935">Mesura</code>.</li>
-  <li data-start="3942" data-end="4020">README amb breu explicació de decisions
-    (estratègia ASCII, validacions, etc.).</li>
-</ol>
+### AC1 – Sensors Biomètrics
+
+#### Processament de mesures de sensors biomètrics
+
+En un laboratori s'estan recollint mesures de sensors biomètrics (per exemple, **temperatura**, **pols**, **SpO₂**). Disposem d'un fitxer `mesures.csv` amb dades inicials que volem **llegir, llistar, representar en consola** i **ampliar** amb noves mesures introduïdes per teclat.
+
+Implementaràs la classe `Mesura` i una aplicació de consola amb menú.
+
+### 1) Classe `Mesura`
+
+#### Atributs mínims:
+
+- `id` (enter) → **autoincremental** i **únic** per instància.
+- `tipus` (String) → p. ex. `TEMPERATURA`, `POLS`, `SPO2`.
+- `valor` (double) → p. ex. 36.7, 72.0, 97.0.
+- `unitat` (String) → p. ex. `ºC`, `bpm`, `%`.
+- `instant` (String) → format simple ISO, p. ex. `2025-10-01 10:30`.
+
+#### Requisits:
+
+- Control d'**id autoincremental** amb un **camp de classe** (`static`).
+- **Dos constructors**:
+  - Amb paràmetres (`tipus, valor, unitat, instant`).
+  - Que permeti construir a partir d'una línia del CSV (ignorant les línies que comencin per `#`).
+- Mètodes bàsics (`toString()`, getters/setters amb validacions).
+
+### 2) Aplicació de consola (menú)
+
+En engegar, el sistema carrega `mesures.csv` i mostra:
+
+```
+■■■ Sensors ■■■
+1. Llistar mesures
+2. Representació ASCII
+3. Afegir mesura
+4. Buscar per tipus
+5. Sortir
+
+Escull una opció:
+```
+
+#### Opcions
+
+**1. Llistar mesures**
+
+Mostra totes les mesures amb format:
+
+```
+■ <id>: <tipus> = <valor><unitat> @ <instant>
+```
+
+**2. Representació ASCII (resum per tipus)**
+
+- Es mostra un "gràfic de barres" per cada tipus de sensor.
+- Es pot triar estratègia:
+  - Últim valor registrat, o
+  - Mitjana de totes les mesures d'aquell tipus.
+- Escala senzilla:
+  - TEMPERATURA (35–40 ºC → cada 0.5 ºC = "#")
+  - POLS (40–180 bpm → cada 10 bpm = "#")
+  - SPO2 (80–100 % → cada 2 % = "#")
+- Exemple:
+
+```
+T: #### (36.8 ºC)
+P: ### (68.5 bpm)
+S: ######### (96 %)
+```
+
+**3. Afegir mesura**
+
+- Demana dades per teclat (tipus, valor, unitat, instant).
+- Valida: tipus vàlid (`TEMPERATURA|POLS|SPO2`), valor numèric, unitat coherent, instant amb format plausible.
+- Assigna id automàtic i guarda al CSV.
+
+**4. Buscar per tipus**
+
+- Demana un tipus i mostra **totes les mesures** d'aquell tipus.
+- Exemple:
+
+```
+Tipus: TEMPERATURA
+■ 1: TEMPERATURA = 36.7ºC @ 2025-09-30 10:15
+■ 4: TEMPERATURA = 37.2ºC @ 2025-09-30 11:00
+■ 7: TEMPERATURA = 36.5ºC @ 2025-09-30 12:20
+```
+
+**5. Sortir**
+
+- Finalitza l'aplicació.
+
+### 3) Fitxer `mesures.csv`
+
+Format:
+
+```
+id,tipus,valor,unitat,instant
+```
+
+Exemple inicial:
+
+```
+# id,tipus,valor,unitat,instant
+1,TEMPERATURA,36.7,ºC,2025-09-30 10:15
+2,POLS,72,bpm,2025-09-30 10:16
+3,SPO2,97,%,2025-09-30 10:17
+# aqui hi ha un comentari
+4,TEMPERATURA,37.2,ºC,2025-09-30 11:00
+5,POLS,65,bpm,2025-09-30 11:05
+6,SPO2,95,%,2025-09-30 11:10
+7,TEMPERATURA,36.5,ºC,2025-09-30 12:20
+```
+
+### 4) Lliurament
+
+**Data límit**: 1/03/2025 a les 23:55.
+
+Entrega un ZIP amb el projecte IntelliJ que contindrà, com a mínim:
+
+1. `Mesura.java` i `Main.java`.
+2. Fitxer `mesures.csv` (dades inicials + noves).
+3. Diagrama UML de la classe `Mesura`.
+4. README amb breu explicació de decisions (estratègia ASCII, validacions, etc.).
+
+## Conceptos Aplicados
+
+Esta actividad integra los siguientes conceptos aprendidos en sesiones anteriores:
+
+### Sesión 02 - Programación Orientada a Objetos
+- ✅ Creación de la clase `Mesura` con atributos y métodos
+- ✅ Uso de constructores múltiples
+- ✅ Encapsulamiento con getters y setters
+
+### Sesión 03 - Encapsulamiento y Principios de Diseño
+- ✅ Atributo estático (`static`) para el contador de IDs
+- ✅ Implementación del método `toString()`
+- ✅ Validaciones en setters
+
+### Sesión 04 - Colecciones y Lectura de Archivos
+- ✅ Uso de `ArrayList` para almacenar múltiples medidas
+- ✅ Lectura de archivo CSV con `FileReader` y `BufferedReader`
+- ✅ Manejo de excepciones con `try/catch`
+- ✅ Procesamiento de líneas CSV con `split()`
+- ✅ Escritura de datos al archivo CSV
+
+## Consejos para la Implementación
+
+### 1. Estructura del Proyecto
+
+```
+AC1-Sensors/
+├── src/
+│   ├── Mesura.java      # Clase principal
+│   └── Main.java        # Aplicación con menú
+├── assets/
+│   └── mesures.csv      # Archivo de datos
+├── docs/
+│   └── diagrama-uml.png # Diagrama UML
+└── README.md            # Documentación
+```
+
+### 2. Validaciones Importantes
+
+**Tipo de sensor:**
+```java
+public static boolean esTipusValid(String tipus) {
+    return tipus.equals("TEMPERATURA") || 
+           tipus.equals("POLS") || 
+           tipus.equals("SPO2");
+}
+```
+
+**Unidad coherente con el tipo:**
+```java
+public static boolean esUnitatCoherent(String tipus, String unitat) {
+    if (tipus.equals("TEMPERATURA")) return unitat.equals("ºC");
+    if (tipus.equals("POLS")) return unitat.equals("bpm");
+    if (tipus.equals("SPO2")) return unitat.equals("%");
+    return false;
+}
+```
+
+### 3. Constructor desde CSV
+
+```java
+// Constructor que parsea una línea CSV
+public Mesura(String liniaCsv) {
+    // Ignorar líneas de comentario
+    if (liniaCsv.startsWith("#")) {
+        return;
+    }
+    
+    String[] parts = liniaCsv.split(",");
+    // parts[0] = id (ignorar, se asignará automáticamente)
+    this.tipus = parts[1];
+    this.valor = Double.parseDouble(parts[2]);
+    this.unitat = parts[3];
+    this.instant = parts[4];
+    // El id se asigna automáticamente
+}
+```
+
+### 4. Representación ASCII
+
+Para calcular el número de caracteres "#" en la representación ASCII:
+
+```java
+public static int calcularBarres(String tipus, double valor) {
+    if (tipus.equals("TEMPERATURA")) {
+        // Rango: 35-40ºC, cada 0.5ºC = 1 barra
+        return (int)((valor - 35.0) / 0.5);
+    } else if (tipus.equals("POLS")) {
+        // Rango: 40-180 bpm, cada 10 bpm = 1 barra
+        return (int)((valor - 40.0) / 10.0);
+    } else if (tipus.equals("SPO2")) {
+        // Rango: 80-100%, cada 2% = 1 barra
+        return (int)((valor - 80.0) / 2.0);
+    }
+    return 0;
+}
+```
+
+### 5. Guardar al CSV
+
+Después de añadir una nueva medida:
+
+```java
+public static void guardarMesures(ArrayList<Mesura> mesures, String nomFitxer) {
+    try {
+        FileWriter fw = new FileWriter(nomFitxer);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+        // Escribir encabezado
+        bw.write("id,tipus,valor,unitat,instant");
+        bw.newLine();
+        
+        // Escribir cada medida
+        for (Mesura m : mesures) {
+            bw.write(m.toCSV());
+            bw.newLine();
+        }
+        
+        bw.close();
+    } catch (IOException e) {
+        System.out.println("Error al guardar el archivo");
+    }
+}
+```
+
+## Criterios de Evaluación
+
+- ✅ **Clase `Mesura` bien diseñada**: Atributos correctos, constructores funcionales, métodos útiles
+- ✅ **ID autoincremental**: Uso correcto de atributo `static`
+- ✅ **Lectura de CSV**: Correcta lectura y parseo del archivo
+- ✅ **Validaciones**: Tipo, unidad coherente, valores numéricos
+- ✅ **Menú funcional**: Todas las opciones implementadas correctamente
+- ✅ **Representación ASCII**: Cálculo correcto de barras según el tipo
+- ✅ **Escritura de CSV**: Guardar nuevas medidas correctamente
+- ✅ **Manejo de errores**: try/catch apropiados
+- ✅ **Código limpio**: Nombres descriptivos, comentarios, buena estructura
+- ✅ **Documentación**: README explicativo y diagrama UML claro
+
+## Recursos Adicionales
+
+- [ArrayList en Java](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
+- [Lectura de archivos](https://docs.oracle.com/javase/tutorial/essential/io/file.html)
+- [Scanner para entrada de usuario](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
+- [String.split() para parsear CSV](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-)
+
+## Resumen
+
+En esta actividad pondrás en práctica:
+
+- ✅ Diseño de clases con atributos estáticos
+- ✅ Múltiples constructores
+- ✅ Lectura y escritura de archivos CSV
+- ✅ Uso de ArrayList para colecciones
+- ✅ Validación de datos de entrada
+- ✅ Manejo de excepciones
+- ✅ Interfaz de consola con menú
+- ✅ Representación de datos de forma visual
+
+¡Buena suerte con la actividad! 🚀
