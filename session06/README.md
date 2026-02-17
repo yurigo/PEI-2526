@@ -114,11 +114,11 @@ En UML, la asociación se representa con una **línea continua (──)** entre 
 
 ```
 ┌──────────────┐         ┌─────────────┐
-│  University  │◆────────│   Student   │
+│  University  │─────────│   Student   │
 └──────────────┘  1   *  └─────────────┘
                          
 ┌──────────────┐         ┌─────────────┐
-│  University  │◆────────│   Teacher   │
+│  University  │─────────│   Teacher   │
 └──────────────┘  1   *  └─────────────┘
 ```
 
@@ -199,20 +199,20 @@ public class University {
 **Uso:**
 
 ```java
-University upc = new University("UPC - Universidad Politécnica de Cataluña");
+University url = new University("URL - Universidad Ramón Llull");
 
-Student s1 = new Student("Ana García", "20231001");
-Student s2 = new Student("Carlos Ruiz", "20231002");
+Student s1 = new Student("Alice Doe", "20231001");
+Student s2 = new Student("Bob Doe", "20231002");
 
-Teacher t1 = new Teacher("Dr. Martínez", "Informática");
-Teacher t2 = new Teacher("Dra. López", "Matemáticas");
+Teacher t1 = new Teacher("Dr. Oetker", "Informática");
+Teacher t2 = new Teacher("Dra. Dre", "Matemáticas");
 
-upc.matricularEstudiante(s1);
-upc.matricularEstudiante(s2);
-upc.contratarProfesor(t1);
-upc.contratarProfesor(t2);
+url.matricularEstudiante(s1);
+url.matricularEstudiante(s2);
+url.contratarProfesor(t1);
+url.contratarProfesor(t2);
 
-upc.mostrarInformacion();
+url.mostrarInformacion();
 ```
 
 **Puntos clave:**
@@ -698,10 +698,117 @@ Se resolvieron problemas teóricos y prácticos sobre relaciones entre clases, i
 - d. Capítulos + Serie → **Composición**
 - e. Sierra + Tronco de Madera → **Dependencia**
 
+# ✅ Problema 1: Identificar y justificar relaciones entre clases
+
+## a. Canción + Lista de Reproducción → **Agregación**
+
+**Justificación:**
+
+Una *Lista de Reproducción* contiene varias *Canciones*, pero:
+
+- Las canciones pueden existir independientemente de la lista.
+- Una misma canción puede estar en varias listas.
+- Si se elimina la lista, las canciones siguen existiendo.
+
+Esto corresponde a una **agregación** (relación todo–parte débil).
+
+
+## b. Usuario + Usuario Administrador → **Herencia / Generalización**
+
+**Justificación:**
+
+Un *Usuario Administrador* es un tipo específico de *Usuario*:
+
+- Comparte atributos comunes (email, contraseña, nombre, etc.).
+- Puede tener comportamientos adicionales (gestionar regalos, asignar GOODCOINS, etc.).
+- Existe una relación “es un”.
+
+Por tanto, es una **herencia** (generalización/especialización).
+
+
+## c. Fotografía + Comentarios → **Asociación**
+
+**Justificación:**
+
+- Una *Fotografía* puede tener varios *Comentarios*.
+- Un comentario está relacionado con una fotografía concreta.
+- El comentario no forma parte estructural obligatoria de la fotografía.
+- Puede modelarse de forma independiente.
+
+Es una **asociación**, porque existe una relación estructural entre ambas clases, pero no una dependencia fuerte de ciclo de vida.
+
+
+## d. Capítulos + Serie → **Composición**
+
+**Justificación:**
+
+- Una *Serie* está formada por varios *Capítulos*.
+- Un capítulo no tiene sentido fuera de la serie.
+- Si se elimina la serie, los capítulos desaparecen.
+- Un capítulo pertenece a una única serie.
+
+Se trata de una **composición** (relación todo–parte fuerte).
+
+
+## e. Sierra + Tronco de Madera → **Dependencia**
+
+**Justificación:**
+
+- La *Sierra* utiliza el *Tronco de Madera* para realizar una acción (cortar).
+- No existe relación estructural permanente.
+- La relación es puntual, normalmente como parámetro de un método.
+
+Ejemplo conceptual:
+public void cortar(Tronco tronco) {
+    // acción sobre el tronco
+}
+Esto corresponde a una **dependencia**, ya que una clase usa a otra de forma temporal.
+
+
 **Problema 3:** Análisis de diagramas UML:
 - Comparar diferentes relaciones UML
-- Identificar cuál representa mejor una mesa y sus patas (Composición)
+
+| Relación    | Tipo de vínculo   | Ciclo de vida compartido | Ejemplo           |
+| ----------- | ----------------- | ------------------------ | ----------------- |
+| Asociación  | Estructural       | No necesariamente        | Usuario – Pedido  |
+| Agregación  | Todo–parte débil  | No                       | Lista – Canción   |
+| Composición | Todo–parte fuerte | Sí                       | Mesa – Pata       |
+| Herencia    | Especialización   | No aplica                | Vehículo – Coche  |
+| Dependencia | Uso puntual       | No                       | Servicio – Logger |
+
+
 - Explicar características de cada relación con ejemplos
+    - Asociación
+        - Relación estructural entre clases.
+        - Puede tener cardinalidades.
+        - No implica propiedad fuerte.
+        - Ejemplo: `Profesor —————— Curso`.
+    - Agregación
+        - Relación todo–parte débil.
+        - La parte puede existir sin el todo.
+        - Se representa con rombo blanco.
+        - Ejemplo: `Equipo ◇—————— Jugador`.
+    - Composición
+        - Relación todo–parte fuerte.
+        - La parte no puede existir sin el todo.
+        - Se representa con rombo negro.
+        - Ejemplo: `Casa ◆—————— Habitación`.
+    - Herencia (Generalización)
+        - Relación “es un”.
+        - Se representa con triángulo blanco.
+        - Ejemplo: `Administrador —————|> Usuario`.
+    - Dependencia
+        - Relación de uso puntual.
+        - Se representa con línea discontinua.
+        - Ejemplo: `Controlador - - > Servicio`.
+
+- Identificar cuál representa mejor una mesa y sus patas 
+    - **Composición**
+    - Las patas no tienen sentido sin la mesa.
+    - Si la mesa desaparece, las patas también.
+    - Las patas pertenecen exclusivamente a esa mesa.
+    - Existe dependencia de ciclo de vida.
+
 
 ### 3. Diseño UML desde Texto
 
