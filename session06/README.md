@@ -263,6 +263,10 @@ public class Song {
         this.duracionSegundos = duracionSegundos;
     }
     
+    public int getDuracionSegundos() {
+        return duracionSegundos;
+    }
+    
     @Override
     public String toString() {
         return titulo + " - " + artista + " (" + duracionSegundos + "s)";
