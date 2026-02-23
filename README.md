@@ -16,6 +16,7 @@
 | 4   | [Sesión 04 - Colecciones y Lectura de Archivos](session04/) | ArrayList, FileReader, BufferedReader, try/catch, manejo de excepciones | [mercado-con-arraylist](session04/mercado-con-arraylist/), [mercado-con-ficheros](session04/mercado-con-ficheros/) |
 | 5   | [Sesión 05 - Actividad 1: Sensors Biomètrics](session05/) | Primera actividad práctica: aplicación de consola con menú, procesamiento de sensores biomètricos, lectura/escritura CSV | Actividad: Sistema de gestión de medidas de sensores |
 | 6   | [Sesión 06 - Relaciones entre Clases](session06/) | Relaciones UML: Dependencia, Asociación, Agregación, Composición, Cardinalidad, Direccionalidad | [Ejercicios UML](session06/ejercicios/): UMLtoJAVA, TEXTtoUML, Questions |
+| 7   | [Sesión 07 - Herencia y Polimorfismo](session07/) | Repaso relaciones, Herencia, Casting, instanceof, Polimorfismo, Sobrecarga, Clases Abstractas | [aggregation example](session07/aggregation%20example/), [composition example](session07/composition%20example/), [zoo example](session07/zoo%20example/) |
 
 ---
 
@@ -48,4 +49,11 @@ PEI-2526/
         ├── UMLtoJAVA/       # Traducción de UML a código Java
         ├── TEXTtoUML/       # Diseño de diagramas desde texto
         └── questions/       # Ejercicios de examen resueltos
+└── session07/          # Herencia y Polimorfismo
+    ├── README.md                # Teoría completa sobre herencia y polimorfismo
+    ├── aggregation example/     # Ejemplo: Playlist-Song (Agregación)
+    ├── composition example/     # Ejemplo: Chessboard-Cell (Composición)
+    ├── zoo example/             # Ejemplo: Zoo con herencia, polimorfismo y clases abstractas
+    └── ejercicios/
+        └── TEXTtoUML/           # DIABLO XII y FARM SIMULATOR con herencia
 ```
