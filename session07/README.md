@@ -12,12 +12,12 @@ En esta sesión hemos repasado las relaciones entre clases e introducido los con
 
 Antes de entrar en los nuevos conceptos, repasamos brevemente los cuatro tipos de relaciones entre clases que vimos en la sesión anterior:
 
-| Relación     | Notación UML | Descripción                                              |
-| ------------ | ------------ | -------------------------------------------------------- |
-| Dependencia  | `- - - >`    | Uso temporal de una clase como parámetro o variable local |
-| Asociación   | `──`         | Relación estructural duradera (atributo)                  |
-| Agregación   | `◇──`        | "Tiene-un": las partes existen independientemente         |
-| Composición  | `◆──`        | "Parte-de": las partes no existen sin el todo             |
+| Relación    | Notación UML | Descripción                                               |
+| ----------- | ------------ | --------------------------------------------------------- |
+| Dependencia | `- - - >`    | Uso temporal de una clase como parámetro o variable local |
+| Asociación  | `───────`    | Relación estructural duradera (atributo)                  |
+| Agregación  | `◇──────`    | "Tiene-un": las partes existen independientemente         |
+| Composición | `◆──────`    | "Parte-de": las partes no existen sin el todo             |
 
 ---
 
@@ -84,6 +84,7 @@ System.out.println(s1.name);  // "Diamond" - sigue existiendo
 ```
 
 **Puntos clave de la Agregación:**
+
 - ✅ Las canciones se crean **fuera** de la playlist
 - ✅ `p1 = null` elimina la playlist, pero **no** las canciones
 - ✅ Las canciones pueden pertenecer a múltiples playlists
@@ -235,6 +236,7 @@ d.talk();             // Método propio de Dog: "Woof woof"
 ```
 
 **Ventajas de la herencia:**
+
 - ✅ **Reutilización de código**: los atributos y métodos comunes se definen una sola vez
 - ✅ **Extensibilidad**: se pueden añadir nuevas subclases sin modificar la superclase
 - ✅ **Organización**: modela relaciones "es-un" del mundo real (un Perro ES UN Animal)
@@ -269,11 +271,12 @@ for (Animal a : zoo) {
 ```
 
 **Explicación:**
+
 - `instanceof` verifica si un objeto es de un tipo concreto antes de hacer el casting
 - `(Dog) a` convierte la referencia de tipo `Animal` a tipo `Dog`
 - Sin `instanceof`, el casting puede lanzar una `ClassCastException` en tiempo de ejecución
 
-> **Nota:** En versiones modernas de Java (16+) se puede usar *pattern matching*: `if (a instanceof Dog dog) { dog.bark(); }`
+> **Nota:** En versiones modernas de Java (16+) se puede usar _pattern matching_: `if (a instanceof Dog dog) { dog.bark(); }`
 
 ---
 
@@ -300,6 +303,7 @@ for (Animal a : zoo) {
 ```
 
 **Salida:**
+
 ```
 el animal Alice Persian 9000
 meow meow meow meow
@@ -314,9 +318,10 @@ wqeoiqwpueoir qwpeoiru qpiorqweqwporeiu
 ```
 
 **Cómo funciona el polimorfismo:**
+
 - La referencia es de tipo `Animal`, pero el objeto real es de un tipo concreto (`Cat`, `Dog`, etc.)
 - Java ejecuta el método de la clase **real** del objeto, no de la clase de la referencia
-- Esto se llama **enlace dinámico** o *dynamic dispatch*
+- Esto se llama **enlace dinámico** o _dynamic dispatch_
 
 #### 6.2. Sobrecarga de Métodos (Method Overriding)
 
@@ -406,38 +411,11 @@ public class Fish extends Animal {
 ```
 
 **Ventajas de las clases abstractas:**
+
 - ✅ **Fuerza** a las subclases a implementar los métodos abstractos
 - ✅ **Evita** instanciar clases que no tienen sentido por sí solas
 - ✅ **Garantiza** que todos los animales tienen un método `talk()`
 - ✅ **Combina** código compartido (métodos concretos) con comportamiento forzado (métodos abstractos)
-
----
-
-### 8. Instrucciones de Ejecución
-
-#### Aggregation Example
-
-```bash
-cd "session07/aggregation example"
-javac *.java
-java Main
-```
-
-#### Composition Example
-
-```bash
-cd "session07/composition example"
-javac *.java
-java Main
-```
-
-#### Zoo Example
-
-```bash
-cd "session07/zoo example"
-javac *.java
-java Main
-```
 
 ---
 
@@ -469,6 +447,7 @@ Se repitió el ejercicio de DIABLO XII incorporando **herencia** en el diseño U
 ```
 
 **Relaciones identificadas con herencia:**
+
 - `Personaje` es superclase abstracta de `Guerrero`, `Mago`, `Arquero`
 - `Personaje` **tiene** un `Inventario` → **Composición** (el inventario pertenece al personaje)
 - `Inventario` **contiene** `Objeto`s → **Agregación** (los objetos pueden existir independientemente)
@@ -516,6 +495,7 @@ Se repitió el ejercicio de FARM SIMULATOR incorporando **herencia**. Los animal
 ```
 
 **Relaciones identificadas:**
+
 - `Granja` **compuesta por** `Terreno`s, `Edificio`s, `Animal`es → **Composición**
 - `Edificio` es superclase de `Granero`, `Gallinero`, `Establo`, `Casa`
 - `Animal` es superclase de `Vaca`, `Pollo`, `Oveja`, `Caballo`
@@ -525,18 +505,18 @@ Se repitió el ejercicio de FARM SIMULATOR incorporando **herencia**. Los animal
 
 ## Resumen de Conceptos
 
-| Concepto           | Descripción                                               | Ejemplo                          |
-| ------------------ | --------------------------------------------------------- | -------------------------------- |
-| **Herencia**       | Una clase reutiliza y extiende otra (`extends`)            | `Dog extends Animal`             |
-| **Superclase**     | La clase padre que proporciona atributos/métodos comunes  | `Animal`                         |
-| **Subclase**       | La clase hija que hereda y puede extender la superclase   | `Dog`, `Cat`, `Bird`             |
-| **`super()`**      | Llama al constructor de la superclase                     | `super(name, type, age)`         |
-| **`instanceof`**   | Comprueba si un objeto es de un tipo concreto             | `if (a instanceof Dog)`          |
-| **Casting**        | Convierte una referencia a un tipo más específico         | `((Dog) a).bark()`               |
-| **Polimorfismo**   | Un método se comporta diferente según el tipo real        | `a.talk()` → cada animal habla   |
-| **`@Override`**    | Indica que un método sobrescribe al de la superclase      | `@Override public void talk()`   |
-| **Clase abstracta**| No se puede instanciar; sirve como plantilla              | `public abstract class Animal`   |
-| **Método abstracto** | Sin implementación; obliga a las subclases a definirlo  | `abstract public void talk()`    |
+| Concepto             | Descripción                                              | Ejemplo                        |
+| -------------------- | -------------------------------------------------------- | ------------------------------ |
+| **Herencia**         | Una clase reutiliza y extiende otra (`extends`)          | `Dog extends Animal`           |
+| **Superclase**       | La clase padre que proporciona atributos/métodos comunes | `Animal`                       |
+| **Subclase**         | La clase hija que hereda y puede extender la superclase  | `Dog`, `Cat`, `Bird`           |
+| **`super()`**        | Llama al constructor de la superclase                    | `super(name, type, age)`       |
+| **`instanceof`**     | Comprueba si un objeto es de un tipo concreto            | `if (a instanceof Dog)`        |
+| **Casting**          | Convierte una referencia a un tipo más específico        | `((Dog) a).bark()`             |
+| **Polimorfismo**     | Un método se comporta diferente según el tipo real       | `a.talk()` → cada animal habla |
+| **`@Override`**      | Indica que un método sobrescribe al de la superclase     | `@Override public void talk()` |
+| **Clase abstracta**  | No se puede instanciar; sirve como plantilla             | `public abstract class Animal` |
+| **Método abstracto** | Sin implementación; obliga a las subclases a definirlo   | `abstract public void talk()`  |
 
 ---
 
