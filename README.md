@@ -17,6 +17,7 @@
 | 5   | [Sesión 05 - Actividad 1: Sensors Biomètrics](session05/) | Primera actividad práctica: aplicación de consola con menú, procesamiento de sensores biomètricos, lectura/escritura CSV | Actividad: Sistema de gestión de medidas de sensores |
 | 6   | [Sesión 06 - Relaciones entre Clases](session06/) | Relaciones UML: Dependencia, Asociación, Agregación, Composición, Cardinalidad, Direccionalidad | [Ejercicios UML](session06/ejercicios/): UMLtoJAVA, TEXTtoUML, Questions |
 | 7   | [Sesión 07 - Herencia y Polimorfismo](session07/) | Repaso relaciones, Herencia, Casting, instanceof, Polimorfismo, Sobrecarga, Clases Abstractas | [aggregation example](session07/aggregation%20example/), [composition example](session07/composition%20example/), [zoo example](session07/zoo%20example/) |
+| 8   | [Sesión 08 - Herencia, Visibilidad y Polimorfismo](session08/) | Herencia en cadena, Modificadores de acceso (private/public/protected/package), Polimorfismo vertical (sobrescritura), Polimorfismo horizontal (sobrecarga) | [area-perimeter-calculator](session08/area-perimeter-calculator/) |
 
 ---
 
@@ -56,4 +57,7 @@ PEI-2526/
     ├── zoo example/             # Ejemplo: Zoo con herencia, polimorfismo y clases abstractas
     └── ejercicios/
         └── TEXTtoUML/           # DIABLO XII y FARM SIMULATOR con herencia
+└── session08/          # Herencia, Visibilidad y Polimorfismo
+    ├── README.md                # Teoría completa sobre visibilidad y polimorfismo vertical/horizontal
+    └── area-perimeter-calculator/ # Ejemplo: Forma abstracta con Rectangulo, Cuadrado, Triangulo, Circulo
 ```
