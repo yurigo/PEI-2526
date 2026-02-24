@@ -85,7 +85,7 @@ Gracias a ello, `Circulo` (subclase en el mismo paquete) puede acceder directame
 ```java
 public class Circulo extends Forma {
     public Circulo(double r) {
-        super("hola.Circulo");
+        super("Circulo");
         this.nombre = "Circulo";  // acceso directo al atributo protected
     }
 }
@@ -167,7 +167,7 @@ public class Rectangulo extends Forma {
     private double altura;
 
     public Rectangulo(double base, double altura) {
-        super("hola.Rectangulo");   // ⚠️ "hola." es un artefacto de desarrollo; debería ser "Rectangulo"
+        super("Rectangulo");
         this.base = base;
         this.altura = altura;
     }
@@ -210,7 +210,7 @@ public class Triangulo extends Forma {
     private double lado1, lado2, lado3;
 
     public Triangulo(double lado1, double lado2, double lado3) {
-        super("hola.Triangulo");   // ⚠️ "hola." es un artefacto de desarrollo; debería ser "Triangulo"
+        super("Triangulo");
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.lado3 = lado3;
@@ -243,9 +243,8 @@ public class Circulo extends Forma {
     private double radius;
 
     public Circulo(double r) {
-        super("hola.Circulo");    // ⚠️ "hola." es un artefacto de desarrollo
+        super("Circulo");
         radius = r;
-        this.nombre = "Circulo";  // corrige el nombre directamente vía el atributo protected
     }
 
     @Override
@@ -307,17 +306,17 @@ Area:      100.0
 Perimetro: 40.0
 -----------------------------------
 -----------------------------------
-Nombre:    hola.Rectangulo
+Nombre:    Rectangulo
 Area:      30.0
 Perimetro: 22.0
 -----------------------------------
 -----------------------------------
-Nombre:    hola.Triangulo
+Nombre:    Triangulo
 Area:      6.0
 Perimetro: 12.0
 -----------------------------------
 -----------------------------------
-Nombre:    hola.Triangulo
+Nombre:    Triangulo
 Area:      0.0
 Perimetro: 6.0
 -----------------------------------

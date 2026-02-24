@@ -6,7 +6,7 @@ public class Rectangulo extends Forma{
     private double altura;
 
     public Rectangulo(double base, double altura) {
-        super("hola.Rectangulo");
+        super("Rectangulo");
 
         this.base = base;
         this.altura = altura;

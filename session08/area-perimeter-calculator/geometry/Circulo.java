@@ -4,9 +4,8 @@ public class Circulo extends Forma {
     private double radius;
 
     public Circulo(double r) {
-        super("hola.Circulo");
+        super("Circulo");
         radius = r;
-        this.nombre = "Circulo";
     }
 
     @Override
