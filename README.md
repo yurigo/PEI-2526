@@ -18,6 +18,7 @@
 | 6   | [Sesión 06 - Relaciones entre Clases](session06/) | Relaciones UML: Dependencia, Asociación, Agregación, Composición, Cardinalidad, Direccionalidad | [Ejercicios UML](session06/ejercicios/): UMLtoJAVA, TEXTtoUML, Questions |
 | 7   | [Sesión 07 - Herencia y Polimorfismo](session07/) | Repaso relaciones, Herencia, Casting, instanceof, Polimorfismo, Sobrecarga, Clases Abstractas | [aggregation example](session07/aggregation%20example/), [composition example](session07/composition%20example/), [zoo example](session07/zoo%20example/) |
 | 8   | [Sesión 08 - Herencia, Visibilidad y Polimorfismo](session08/) | Herencia en cadena, Modificadores de acceso (private/public/protected/package), Polimorfismo vertical (sobrescritura), Polimorfismo horizontal (sobrecarga) | [area-perimeter-calculator](session08/area-perimeter-calculator/) |
+| 9   | [Sesión 09 - Interfaces en Java](session09/) | Interfaces (`interface`/`implements`), separación qué/cómo, patrón DAO, `List` como interfaz, `ArrayList`/`Vector`/`MySuperList`, principios OCP y DIP | [interface-examples](session09/interface-examples/) |
 
 ---
 
@@ -60,4 +61,7 @@ PEI-2526/
 └── session08/          # Herencia, Visibilidad y Polimorfismo
     ├── README.md                # Teoría completa sobre visibilidad y polimorfismo vertical/horizontal
     └── area-perimeter-calculator/ # Ejemplo: Forma abstracta con Rectangulo, Cuadrado, Triangulo, Circulo
+└── session09/          # Interfaces en Java
+    ├── README.md                # Teoría completa sobre interfaces, patrón DAO y principios OCP/DIP
+    └── interface-examples/      # Ejemplo: MenuInterface con MenuConsole, MenuColor, MenuWindows, MySuperList
 ```
