@@ -10,3 +10,6 @@ Se ha implementado en clase un ejemplo de MenuInterface y su implementación Men
 Se ha explicado que List es una Interface y ArrayList y Vector son una implementación de ella.
 
 Se ha añadido un MySuperList como implementación de Lista y visto y comprobado que para hacer una Lista debemos implementar tódos los métodos de la interfaz (cumplimentar el contrato)
+
+
+Como actividad se ha pedido que se recupere la actividad de Sensors Biométrics (session05) e iterarla para añadirle 2 interfaces: Menu y DAO.  De este modo conseguimos desacoplar System.in y System.out del main y acoplarlo a una interface Menu.  Y lectura y escritura a ficheros a través de una interfaz DAO.
