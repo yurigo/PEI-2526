@@ -19,6 +19,7 @@
 | 7   | [Sesión 07 - Herencia y Polimorfismo](session07/) | Repaso relaciones, Herencia, Casting, instanceof, Polimorfismo, Sobrecarga, Clases Abstractas | [aggregation example](session07/aggregation%20example/), [composition example](session07/composition%20example/), [zoo example](session07/zoo%20example/) |
 | 8   | [Sesión 08 - Herencia, Visibilidad y Polimorfismo](session08/) | Herencia en cadena, Modificadores de acceso (private/public/protected/package), Polimorfismo vertical (sobrescritura), Polimorfismo horizontal (sobrecarga) | [area-perimeter-calculator](session08/area-perimeter-calculator/) |
 | 9   | [Sesión 09 - Interfaces en Java](session09/) | Interfaces (`interface`/`implements`), separación qué/cómo, patrón DAO, `List` como interfaz, `ArrayList`/`Vector`/`MySuperList`, principios OCP y DIP | [interface-examples](session09/interface-examples/) |
+| 10  | [Sesión 10 - Herencia Múltiple, Interfaces y Arquitectura en Capas](session10/) | Problema del diamante, interfaz `Volador`, clases abstractas `Animal`/`Vehiculo`, patrón Controller, inyección de dependencias, arquitectura en capas | [partial-solution-sensors-biometrics](session10/partial-solution-sensors-biometrics/) |
 
 ---
 
@@ -64,4 +65,9 @@ PEI-2526/
 └── session09/          # Interfaces en Java
     ├── README.md                # Teoría completa sobre interfaces, patrón DAO y principios OCP/DIP
     └── interface-examples/      # Ejemplo: MenuInterface con MenuConsole, MenuColor, MenuWindows, MySuperList
+└── session10/          # Herencia Múltiple, Interfaces y Arquitectura en Capas
+    ├── README.md                # Teoría completa: herencia múltiple, interfaz Volador, Controller, inyección de dependencias
+    ├── ACTIVIDAD.md             # AC2: Enunciado del refactor de Sensors Biométrics (arquitectura en capas)
+    └── partial-solution-sensors-biometrics/  # Código base para la actividad AC2
+        └── src/                 # Main, Controller, Medida, Menu, MenuConsole, MenuConsoleSuperior, DAOMedida, DAOMedidaCSVFile
 ```
