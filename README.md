@@ -20,6 +20,7 @@
 | 8   | [Sesión 08 - Herencia, Visibilidad y Polimorfismo](session08/) | Herencia en cadena, Modificadores de acceso (private/public/protected/package), Polimorfismo vertical (sobrescritura), Polimorfismo horizontal (sobrecarga) | [area-perimeter-calculator](session08/area-perimeter-calculator/) |
 | 9   | [Sesión 09 - Interfaces en Java](session09/) | Interfaces (`interface`/`implements`), separación qué/cómo, patrón DAO, `List` como interfaz, `ArrayList`/`Vector`/`MySuperList`, principios OCP y DIP | [interface-examples](session09/interface-examples/) |
 | 10  | [Sesión 10 - Herencia Múltiple, Interfaces y Arquitectura en Capas](session10/) | Problema del diamante, interfaz `Volador`, clases abstractas `Animal`/`Vehiculo`, patrón Controller, inyección de dependencias, arquitectura en capas | [partial-solution-sensors-biometrics](session10/partial-solution-sensors-biometrics/) |
+| 11  | [Sesión 11 - Excepciones en Java](session11/) | Concepto de excepción, jerarquía `Throwable`, `try`/`catch`/`finally`, `RuntimeException`, valor centinela vs bucle de reintento, `throw`, limpieza del buffer del `Scanner` | [partial-solution-sensors-biometrics](session11/partial-solution-sensors-biometrics/) |
 
 ---
 
@@ -69,5 +70,9 @@ PEI-2526/
     ├── README.md                # Teoría completa: herencia múltiple, interfaz Volador, Controller, inyección de dependencias
     ├── ACTIVIDAD.md             # AC2: Enunciado del refactor de Sensors Biométrics (arquitectura en capas)
     └── partial-solution-sensors-biometrics/  # Código base para la actividad AC2
+        └── src/                 # Main, Controller, Medida, Menu, MenuConsole, MenuConsoleSuperior, DAOMedida, DAOMedidaCSVFile
+└── session11/          # Excepciones en Java
+    ├── README.md                # Teoría completa: try/catch/finally, RuntimeException, valor centinela vs bucle de reintento
+    └── partial-solution-sensors-biometrics/  # Boilerplate AC2 con manejo de excepciones en getInteger y Controller
         └── src/                 # Main, Controller, Medida, Menu, MenuConsole, MenuConsoleSuperior, DAOMedida, DAOMedidaCSVFile
 ```
