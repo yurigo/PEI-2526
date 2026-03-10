@@ -10,6 +10,8 @@ En esta sesión hemos profundizado en el sistema de excepciones de Java creando 
 
 ## 1. Repaso: Checked vs Unchecked
 
+![Jerarquía de excepciones Java](exceptions-hierarchy.png)
+
 | Tipo          | Clase base          | El compilador obliga a tratarla | Cuándo usarla                                     |
 |---------------|---------------------|---------------------------------|---------------------------------------------------|
 | **Checked**   | `Exception`         | ✅ Sí                           | Errores recuperables: E/S, red, formato de datos… |
