@@ -1,0 +1,657 @@
+<h2 data-start="172" data-end="226">🎧 laSallefy</h2>
+<p data-start="228" data-end="361">En este proyecto vamos a ampliar el ejercicio
+  del <strong data-start="278" data-end="302">generador de sonidos</strong> para
+  convertirlo en un <strong data-start="326" data-end="356">reproductor de
+    “canciones”</strong> con:</p>
+<ul>
+  <li data-start="365" data-end="399">Listas de reproducción (playlists)</li>
+  <li data-start="402" data-end="425">Biblioteca de canciones</li>
+  <li data-start="428" data-end="468">Reproducción usando vuestro <code
+      data-start="456" data-end="468">SoundSynth</code></li>
+  <li data-start="471" data-end="495">Persistencia en <strong data-start="487"
+      data-end="495">JSON</strong></li>
+  <li data-start="498" data-end="563">Generación de <strong data-start="512"
+      data-end="545">álbumes aleatorios por “mood”</strong> (estado de ánimo)
+  </li>
+</ul>
+<p></p>
+<hr data-start="735" data-end="738">
+<h2 data-start="740" data-end="762">1. Contexto general</h2>
+<p data-start="764" data-end="907">Imaginad un <strong data-start="776"
+    data-end="804">mini reproductor musical</strong> que no trabaja con MP3,
+  sino con un <strong data-start="841" data-end="864">sintetizador
+    propio</strong> (el que habéis ido construyendo en clase).</p>
+<ul>
+  <li data-start="911" data-end="1002">Cada <em data-start="916"
+      data-end="925">canción</em> es una <strong data-start="933"
+      data-end="955">secuencia de notas</strong> (o más adelante, de frecuencias
+    y duraciones).</li>
+  <li data-start="1005" data-end="1187">Algunas canciones pueden tener solo
+    <strong data-start="1041" data-end="1054">metadatos</strong> (título,
+    artista, duración estimada, mood…), pero <strong data-start="1105"
+      data-end="1111">no</strong> la secuencia de notas → se pueden listar, pero
+    <strong data-start="1159" data-end="1186">no se pueden reproducir</strong>.
+  </li>
+  <li data-start="1190" data-end="1319">Las listas de reproducción (<strong
+      data-start="1218" data-end="1231">playlists</strong>) sólo guardan <strong
+      data-start="1246" data-end="1280">referencias a canciones por id</strong>,
+    no copias completas de las canciones.</li>
+</ul>
+<p data-start="1321" data-end="1357">El objetivo es que el usuario pueda:</p>
+<ol>
+  <li data-start="1362" data-end="1404">Gestionar una <strong data-start="1376"
+      data-end="1403">biblioteca de canciones</strong>.</li>
+  <li data-start="1408" data-end="1463">Gestionar <strong data-start="1418"
+      data-end="1431">playlists</strong> que referencian esas canciones.</li>
+  <li data-start="1467" data-end="1528">Reproducir canciones o playlists usando
+    vuestro <code data-start="1515" data-end="1527">SoundSynth</code>.</li>
+  <li data-start="1532" data-end="1661">Pedir al sistema que cree un <strong
+      data-start="1561" data-end="1579">“álbum random”</strong> de un
+    determinado <strong data-start="1598" data-end="1606">mood</strong> (p. ej.
+    <em data-start="1615" data-end="1622">HAPPY</em>) y una duración aproximada
+    en minutos.</li>
+</ol>
+<p></p>
+<hr data-start="1663" data-end="1666">
+<h2 data-start="1668" data-end="1698">2. Modelo de dominio mínimo</h2>
+<h3 data-start="1700" data-end="1727">2.1. Canciones (<code data-start="1720"
+    data-end="1726">Song</code>)</h3>
+<p data-start="1729" data-end="1766">Cada canción debe tener, como mínimo:</p>
+<ul>
+  <li data-start="1770" data-end="1811"><code data-start="1770"
+      data-end="1774">id</code> (String o int): identificador único.</li>
+  <li data-start="1814" data-end="1830"><code data-start="1814"
+      data-end="1821">title</code> (String)</li>
+  <li data-start="1833" data-end="1850"><code data-start="1833"
+      data-end="1841">artist</code> (String)</li>
+  <li data-start="1853" data-end="1910"><code data-start="1853"
+      data-end="1870">durationSeconds</code> (int): duración aproximada en
+    segundos.</li>
+  <li data-start="1913" data-end="1972"><code data-start="1913"
+      data-end="1919">mood</code> (enum): p. ej. <code data-start="1935"
+      data-end="1942">HAPPY</code>, <code data-start="1944"
+      data-end="1949">SAD</code>, <code data-start="1951"
+      data-end="1958">RELAX</code>, <code data-start="1960"
+      data-end="1971">ENERGETIC</code>…</li>
+  <li data-start="1975" data-end="2055"><code data-start="1975"
+      data-end="1982">style</code> (String o enum): p. ej. <code
+      data-start="2007" data-end="2017">CHIPTUNE</code>, <code data-start="2019"
+      data-end="2030">CLASSICAL</code>, <code data-start="2032"
+      data-end="2038">GAME</code>, <code data-start="2040"
+      data-end="2049">AMBIENT</code>, etc.</li>
+  <li data-start="2058" data-end="2102"><code data-start="2058"
+      data-end="2068">playable</code> (boolean) o equivalente derivado.</li>
+  <li data-start="2105" data-end="2144"><strong data-start="2105"
+      data-end="2143">Datos de reproducción (opcionales)</strong>:
+    <ul>
+      <li data-start="2149" data-end="2161">Por ejemplo:
+        <ul>
+          <li data-start="2168" data-end="2238">Una lista de objetos <code
+              data-start="2189" data-end="2209">(note, durationMs)</code> usando
+            vuestro <code data-start="2225" data-end="2237">enum Notes</code>.
+          </li>
+          <li data-start="2245" data-end="2299">O directamente una lista de
+            <code data-start="2273" data-end="2298">(frequency,
+              durationMs)</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p data-start="2301" data-end="2326"><strong data-start="2301"
+    data-end="2326">Requisito importante:</strong></p>
+<ul>
+  <li data-start="2330" data-end="2414">Debe ser posible que <strong
+      data-start="2351" data-end="2397">una canción no tenga datos de
+      reproducción</strong>, solo metadatos.</li>
+  <li data-start="2417" data-end="2489">Al <strong data-start="2420"
+      data-end="2444">listar las canciones</strong> se debe indicar claramente
+    si la canción es:
+    <ul>
+      <li data-start="2494" data-end="2542"><code data-start="2494"
+          data-end="2504">PLAYABLE</code> (tiene notas / frecuencias definidas)
+      </li>
+      <li data-start="2547" data-end="2586"><code data-start="2547"
+          data-end="2561">NOT PLAYABLE</code> (no se puede reproducir)</li>
+    </ul>
+  </li>
+</ul>
+<h3 data-start="2588" data-end="2619">2.2. Playlists (<code data-start="2608"
+    data-end="2618">Playlist</code>)</h3>
+<p data-start="2621" data-end="2651">Cada playlist tendrá al menos:</p>
+<ul>
+  <li data-start="2655" data-end="2674"><code data-start="2655"
+      data-end="2659">id</code> (String o int)</li>
+  <li data-start="2677" data-end="2692"><code data-start="2677"
+      data-end="2683">name</code> (String)</li>
+  <li data-start="2695" data-end="2719"><code data-start="2695"
+      data-end="2708">description</code> (opcional)</li>
+  <li data-start="2722" data-end="2818"><code data-start="2722"
+      data-end="2728">mood</code> principal (puede ser el de la mayoría de
+    canciones, o simplemente un campo independiente)</li>
+  <li data-start="2821" data-end="2871">Lista de <strong data-start="2830"
+      data-end="2850">ids de canciones</strong> (no objetos canción)</li>
+  <li data-start="2874" data-end="2898">Un método para calcular:
+    <ul>
+      <li data-start="2903" data-end="2959">Duración total (suma de las
+        duraciones de las canciones)</li>
+      <li data-start="2964" data-end="3016">Número de canciones reproducibles /
+        no reproducibles</li>
+    </ul>
+  </li>
+</ul>
+<p></p>
+<hr data-start="3018" data-end="3021">
+<h2 data-start="3023" data-end="3049">3. Persistencia en JSON</h2>
+<p data-start="3051" data-end="3097">Se gestionarán <strong data-start="3066"
+    data-end="3096">al menos dos ficheros JSON</strong>:</p>
+<ol>
+  <li data-start="3102" data-end="3225"><code data-start="3102"
+      data-end="3114">songs.json</code><br data-start="3114"
+      data-end="3117">Contiene la <strong data-start="3132"
+      data-end="3154">lista de canciones</strong> con todos sus campos
+    (incluyendo, si procede, la estructura de notas).</li>
+  <li data-start="3230" data-end="3334"><code data-start="3230"
+      data-end="3246">playlists.json</code><br data-start="3246"
+      data-end="3249">Contiene la <strong data-start="3264"
+      data-end="3286">lista de playlists</strong>, con las referencias a
+    canciones mediante <code data-start="3329" data-end="3333">id</code>.</li>
+</ol>
+<h3 data-start="3336" data-end="3364">3.1. Requisitos técnicos</h3>
+<ul>
+  <li data-start="3368" data-end="3486">Uso de una librería JSON (Gson o
+    similar), igual que se ha trabajado en clase.</li>
+  <li data-start="3489" data-end="3529">Definir <strong data-start="3497"
+      data-end="3515">interfaces DAO</strong>, por ejemplo:
+    <ul>
+      <li data-start="3534" data-end="3544"><code data-start="3534"
+          data-end="3544">SongsDAO</code></li>
+      <li data-start="3549" data-end="3563"><code data-start="3549"
+          data-end="3563">PlaylistsDAO</code></li>
+    </ul>
+  </li>
+  <li data-start="3566" data-end="3628">Implementaciones concretas que trabajen
+    con JSON, por ejemplo:
+    <ul>
+      <li data-start="3633" data-end="3667"><code data-start="3633"
+          data-end="3667">JsonSongsDAO implements SongsDAO</code></li>
+      <li data-start="3672" data-end="3714"><code data-start="3672"
+          data-end="3714">JsonPlaylistsDAO implements PlaylistsDAO</code></li>
+    </ul>
+  </li>
+  <li data-start="3717" data-end="3855">El resto de la aplicación trabajará
+    <strong data-start="3753" data-end="3778">contra las interfaces</strong>, no
+    contra las clases concretas (aplicar GRASP Experto y Bajo Acoplamiento).
+  </li>
+</ul>
+<p></p>
+<hr data-start="3857" data-end="3860">
+<h2 data-start="3862" data-end="3891">4. Funcionalidades mínimas</h2>
+<h3 data-start="3893" data-end="3929">4.1. Menú principal (modo texto)</h3>
+<p data-start="3931" data-end="4009">Aplicación de <strong data-start="3945"
+    data-end="3966">línea de comandos</strong> (consola) con un menú principal
+  similar a:</p>
+<div
+  class="contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary">
+  <pre style="line-height: 1; padding-left: 40px;"><code class="whitespace-pre! language-text">■■■ SoundPlayer ■■■</code><br><code class="whitespace-pre! language-text">1. Gestionar canciones</code><br><code class="whitespace-pre! language-text">2. Gestionar playlists</code><br><code class="whitespace-pre! language-text">3. Reproducir</code><br><code class="whitespace-pre! language-text">4. Generar álbum random por mood</code><br><code class="whitespace-pre! language-text">Q. Salir
+</code></pre>
+</div>
+<h3 data-start="4147" data-end="4176">4.2. Gestión de canciones</h3>
+<p data-start="4178" data-end="4195">Opciones mínimas:</p>
+<ol data-start="4197" data-end="4907">
+  <li style="line-height: 1;" data-start="4197" data-end="4333"><strong
+      data-start="4200" data-end="4220">Listar canciones</strong>
+    <ul data-start="4224" data-end="4333">
+      <li data-start="4224" data-end="4333">Mostrar:
+        <ul data-start="4240" data-end="4333">
+          <li data-start="4240" data-end="4284">id, título, artista, duración,
+            mood, style</li>
+          <li data-start="4290" data-end="4333">indicador <code
+              data-start="4302" data-end="4314">[PLAYABLE]</code> o <code
+              data-start="4317" data-end="4333">[NOT PLAYABLE]</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li style="line-height: 1;" data-start="4334" data-end="4771"><strong
+      data-start="4337" data-end="4355">Añadir canción</strong>
+    <ul data-start="4359" data-end="4771">
+      <li data-start="4359" data-end="4423">Pedir datos básicos (título,
+        artista, duración, mood, estilo).</li>
+      <li data-start="4427" data-end="4471">Permitir marcar si será reproducible
+        o no.</li>
+      <li data-start="4475" data-end="4771">Si es reproducible, escoger:
+        <ul data-start="4511" data-end="4771">
+          <li data-start="4511" data-end="4618">o bien una de varias canciones
+            predefinidas en código (p.ej. “Happy birthday” que ya tengáis
+            programada),</li>
+          <li data-start="4624" data-end="4771">o introducir una <strong
+              data-start="4643" data-end="4670">estructura simplificada</strong>
+            de notas (podéis diseñar el formato que queráis, siempre que sea
+            razonable para el nivel del curso).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li style="line-height: 1;" data-start="4772" data-end="4855"><strong
+      data-start="4775" data-end="4795">Eliminar canción</strong> (solo si no
+    está usada en ninguna playlist, o bien avisar).</li>
+  <li data-start="4856" data-end="4907">(Opcional pero recomendable) <strong
+      data-start="4888" data-end="4906">Editar canción</strong>.</li>
+</ol>
+<p data-start="4909" data-end="4965">Todas las operaciones deben <strong
+    data-start="4937" data-end="4964">actualizar <code data-start="4950"
+      data-end="4962">songs.json</code></strong>.</p>
+<h3 data-start="4967" data-end="4996">4.3. Gestión de playlists</h3>
+<p data-start="4998" data-end="5015">Opciones mínimas:</p>
+<ol data-start="5017" data-end="5462">
+  <li data-start="5017" data-end="5142"><strong data-start="5020"
+      data-end="5038">Crear playlist</strong>
+    <ul data-start="5042" data-end="5142">
+      <li data-start="5042" data-end="5107">Pedir nombre, descripción
+        (opcional), mood objetivo (opcional).</li>
+      <li data-start="5111" data-end="5142">Generar <code data-start="5121"
+          data-end="5125">id</code> automáticamente.</li>
+    </ul>
+  </li>
+  <li data-start="5143" data-end="5235"><strong data-start="5146"
+      data-end="5175">Añadir canción a playlist</strong>
+    <ul data-start="5179" data-end="5235">
+      <li data-start="5179" data-end="5197">Elegir playlist.</li>
+      <li data-start="5201" data-end="5235">Elegir canción desde el listado.
+      </li>
+    </ul>
+  </li>
+  <li data-start="5236" data-end="5271"><strong data-start="5239"
+      data-end="5271">Eliminar canción de playlist</strong></li>
+  <li data-start="5272" data-end="5437"><strong data-start="5275"
+      data-end="5295">Listar playlists</strong>
+    <ul data-start="5299" data-end="5437">
+      <li data-start="5299" data-end="5437">Mostrar por playlist:
+        <ul data-start="5328" data-end="5437">
+          <li data-start="5328" data-end="5336">Nombre</li>
+          <li data-start="5342" data-end="5363">Número de canciones</li>
+          <li data-start="5369" data-end="5404">Duración total
+            (minutos/segundos)</li>
+          <li data-start="5410" data-end="5437">Cuántas son reproducibles</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-start="5438" data-end="5462"><strong data-start="5441"
+      data-end="5462">Eliminar playlist</strong></li>
+</ol>
+<p data-start="5464" data-end="5524">Todas las operaciones deben <strong
+    data-start="5492" data-end="5523">actualizar <code data-start="5505"
+      data-end="5521">playlists.json</code></strong>.</p>
+<hr data-start="5526" data-end="5529">
+<h2 data-start="5531" data-end="5564">5. Reproducción con SoundSynth</h2>
+<p data-start="5566" data-end="5594">La aplicación debe permitir:</p>
+<ol data-start="5596" data-end="6147">
+  <li data-start="5596" data-end="5923"><strong data-start="5599"
+      data-end="5625">Reproducir una canción</strong>
+    <ul data-start="5629" data-end="5923">
+      <li data-start="5629" data-end="5665">Lista las canciones reproducibles.
+      </li>
+      <li data-start="5669" data-end="5692">El usuario elige una.</li>
+      <li data-start="5696" data-end="5923">Se llama al sintetizador que habéis
+        construido (<code data-start="5746" data-end="5758">SoundSynth</code> y
+        sus subclases) para:
+        <ul data-start="5787" data-end="5923">
+          <li data-start="5787" data-end="5848">Recorrer la secuencia de notas /
+            frecuencias de la canción.</li>
+          <li data-start="5854" data-end="5923">Invocar algo tipo <code
+              data-start="5874" data-end="5908">makeSound(frequency,
+              durationMs)</code> por cada nota.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-start="5925" data-end="6147"><strong data-start="5928"
+      data-end="5955">Reproducir una playlist</strong>
+    <ul data-start="5959" data-end="6147">
+      <li data-start="5959" data-end="5991">El usuario elige una playlist.</li>
+      <li data-start="5995" data-end="6030">El sistema recorre sus canciones.
+      </li>
+      <li data-start="6034" data-end="6079">Solo reproduce aquellas que son
+        <code data-start="6068" data-end="6078">PLAYABLE</code>.</li>
+      <li data-start="6083" data-end="6147">Debería mostrar por consola qué
+        canción se está reproduciendo.</li>
+    </ul>
+  </li>
+</ol>
+<p data-start="6149" data-end="6275">Puedes asumir <strong data-start="6163"
+    data-end="6201">reproducción monofónica y sencilla</strong> (una nota cada
+  vez, sin acordes simultáneos) para no complicar la lógica.</p>
+<hr data-start="6277" data-end="6280">
+<h2 data-start="6282" data-end="6311">6. Álbum random por “mood”</h2>
+<p data-start="6418" data-end="6432">Funcionalidad:</p>
+<ol data-start="6434" data-end="7216">
+  <li data-start="6434" data-end="6548">El usuario elige:
+    <ul data-start="6458" data-end="6548">
+      <li data-start="6458" data-end="6492">Un <code data-start="6463"
+          data-end="6469">mood</code> (por ejemplo: <code data-start="6484"
+          data-end="6491">HAPPY</code>)</li>
+      <li data-start="6496" data-end="6548">Una <strong data-start="6502"
+          data-end="6523">duración objetivo</strong> en minutos (<code
+          data-start="6536" data-end="6539">X</code> minutos)</li>
+    </ul>
+  </li>
+  <li data-start="6550" data-end="7021">El sistema debe generar automáticamente
+    una <strong data-start="6597" data-end="6615">nueva playlist</strong> (o
+    “álbum”) que:
+    <ul data-start="6637" data-end="7021">
+      <li data-start="6637" data-end="6707">Incluya <strong data-start="6647"
+          data-end="6665">solo canciones</strong> cuyo <code data-start="6671"
+          data-end="6677">mood</code> coincida con el seleccionado.</li>
+      <li data-start="6711" data-end="6818">Preferiblemente, <strong
+          data-start="6730" data-end="6752">solo reproducibles</strong> (tiene
+        sentido que un “álbum de reproducción” se pueda escuchar).</li>
+      <li data-start="6822" data-end="7021">Intente que la <strong
+          data-start="6839" data-end="6861">suma de duraciones</strong> sea:
+        <ul data-start="6874" data-end="7021">
+          <li data-start="6874" data-end="6897">≥ duración objetivo</li>
+          <li data-start="6903" data-end="7021">y no se pase “demasiado” (podéis
+            definir vuestra propia lógica, p. ej. permitir un sobrepaso máximo
+            de una canción).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-start="7023" data-end="7216">La playlist generada debe:
+    <ul data-start="7056" data-end="7216">
+      <li data-start="7056" data-end="7088">Guardarse en <code data-start="7071"
+          data-end="7087">playlists.json</code>.</li>
+      <li data-start="7092" data-end="7216">Ser visible en el listado normal de
+        playlists, indicando que es <code data-start="7158"
+          data-end="7166">random</code> (podéis usar un campo o un prefijo en el
+        nombre).</li>
+    </ul>
+  </li>
+</ol>
+<p data-start="7218" data-end="7261"><strong data-start="7218"
+    data-end="7231">Algoritmo</strong>: puede ser sencillo (greedy):</p>
+<ul data-start="7263" data-end="7411">
+  <li data-start="7263" data-end="7316">Mezclar aleatoriamente las canciones de
+    ese <code data-start="7309" data-end="7315">mood</code>.</li>
+  <li data-start="7317" data-end="7411">Ir añadiendo mientras no se supere la
+    duración objetivo + margen (por ejemplo, una canción).</li>
+</ul>
+<p data-start="7413" data-end="7483">No se pide optimización perfecta, solo un
+  algoritmo razonable y claro.</p>
+<hr data-start="7485" data-end="7488">
+<h2 data-start="7490" data-end="7523">7. Arquitectura y diseño (POO)</h2>
+<p data-start="7525" data-end="7671">Se espera <strong data-start="7535"
+    data-end="7561">arquitectura por capas</strong> (ligera) y aplicación de
+  principios GRASP, como ya se ha visto en clase y en otros enunciados de
+  proyecto.</p>
+<h3 data-start="7673" data-end="7695">7.1. Capas mínimas</h3>
+<ul data-start="7697" data-end="8346">
+  <li data-start="7697" data-end="7775">
+    <p data-start="7699" data-end="7775"><strong data-start="7699"
+        data-end="7708">Model</strong><br data-start="7708"
+        data-end="7711">Clases <code data-start="7720"
+        data-end="7726">Song</code>, <code data-start="7728"
+        data-end="7738">Playlist</code>, <code data-start="7740"
+        data-end="7754">NoteSequence</code>, <code data-start="7756"
+        data-end="7762">Mood</code> (enum), etc.</p>
+  </li>
+  <li data-start="7777" data-end="7883">
+    <p data-start="7779" data-end="7883"><strong data-start="7779"
+        data-end="7786">DAO</strong><br data-start="7786"
+        data-end="7789">Interfaces <code data-start="7802"
+        data-end="7812">SongsDAO</code>, <code data-start="7814"
+        data-end="7828">PlaylistsDAO</code> + implementaciones <code
+        data-start="7848" data-end="7862">JsonSongsDAO</code>, <code
+        data-start="7864" data-end="7882">JsonPlaylistsDAO</code>.</p>
+  </li>
+  <li data-start="7885" data-end="8121"><strong data-start="7887"
+      data-end="7908">Manager / Service</strong><br data-start="7908"
+      data-end="7911">Clases que contienen la <strong data-start="7937"
+      data-end="7958">lógica de negocio</strong>, por ejemplo:
+    <ul data-start="7975" data-end="8121">
+      <li data-start="7975" data-end="8028"><code data-start="7977"
+          data-end="7993">LibraryManager</code> (gestión de canciones y
+        playlists)</li>
+      <li data-start="8031" data-end="8075"><code data-start="8033"
+          data-end="8050">PlaybackManager</code> (lógica de reproducción)</li>
+      <li data-start="8078" data-end="8121"><code data-start="8080"
+          data-end="8096">AlbumGenerator</code> (lógica de álbum random)</li>
+    </ul>
+  </li>
+</ul>
+<ul data-start="7697" data-end="8346">
+  <li data-start="8123" data-end="8206"><strong data-start="8125"
+      data-end="8139">Controller</strong><br data-start="8139"
+      data-end="8142">Gestiona el flujo de menús y coordina vista ↔ managers ↔
+    DAOs.</li>
+  <li data-start="8208" data-end="8346">
+    <p data-start="8210" data-end="8346"><strong data-start="8210"
+        data-end="8228">View (consola)</strong><br data-start="8228"
+        data-end="8231">Todas las interacciones con el usuario (<code
+        data-start="8273" data-end="8284">System.in</code> / <code
+        data-start="8287" data-end="8299">System.out</code>) concentradas aquí
+      (no en DAOs ni en modelos).</p>
+  </li>
+</ul>
+<h3 data-start="8348" data-end="8374">7.2. Requisitos de POO</h3>
+<p data-start="8376" data-end="8415">En el proyecto se deben ver claramente:</p>
+<ul data-start="8417" data-end="9026">
+  <li data-start="8417" data-end="8498"><strong data-start="8419"
+      data-end="8438">Encapsulamiento</strong> (atributos privados,
+    getters/setters cuando tenga sentido).</li>
+  <li data-start="8499" data-end="8736"><strong data-start="8501"
+      data-end="8528">Herencia y polimorfismo</strong>:
+    <ul data-start="8532" data-end="8736">
+      <li data-start="8532" data-end="8736">Por ejemplo:
+        <ul data-start="8551" data-end="8736">
+          <li data-start="8551" data-end="8636"><code data-start="8553"
+              data-end="8580">abstract class SoundSynth</code> y subclases <code
+              data-start="8593" data-end="8610">SoundSynthSinus</code>, <code
+              data-start="8612" data-end="8630">SoundSynthSquare</code>, etc.
+          </li>
+          <li data-start="8641" data-end="8736">O una jerarquía de tipos de
+            pista si queréis separar “generated tracks” de “external tracks”.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-start="8737" data-end="8897"><strong data-start="8739"
+      data-end="8753">Interfaces</strong>:
+    <ul data-start="8757" data-end="8897">
+      <li data-start="8757" data-end="8780">Mínimo para los DAOs y Presentación.
+      </li>
+      <li data-start="8783" data-end="8897">Podéis añadir alguna más (p. ej.
+        <code data-start="8818" data-end="8828">Playable</code> para cosas que
+        se puedan reproducir – canción sola, playlist, etc.).</li>
+    </ul>
+  </li>
+  <li data-start="8898" data-end="9026"><strong data-start="8900"
+      data-end="8915">Colecciones</strong> (<code data-start="8917"
+      data-end="8928">ArrayList</code>, <code data-start="8930"
+      data-end="8939">HashMap</code>, etc.).</li>
+</ul>
+<hr data-start="9028" data-end="9031">
+<h2 data-start="9033" data-end="9067">8. Robustez y manejo de errores</h2>
+<p data-start="9069" data-end="9088">La aplicación debe:</p>
+<ul data-start="9090" data-end="9486">
+  <li data-start="9090" data-end="9191">Controlar entradas inválidas en menús
+    (opciones fuera de rango, letras donde espera números, etc.).</li>
+  <li data-start="9192" data-end="9306">Evitar:
+    <ul data-start="9204" data-end="9306">
+      <li data-start="9204" data-end="9257">Añadir a una playlist un id de
+        canción inexistente.</li>
+      <li data-start="9260" data-end="9306">Reproducir una canción que no es
+        <code data-start="9295" data-end="9305">PLAYABLE</code>.</li>
+    </ul>
+  </li>
+  <li data-start="9307" data-end="9486">Manejar correctamente excepciones de I/O
+    (lectura/escritura de JSON):
+    <ul data-start="9381" data-end="9486">
+      <li data-start="9381" data-end="9486">Mensajes claros sin hacer <code
+          data-start="9409"
+          data-end="9450">System.out.println(e.printStackTrace())</code>
+        directamente en mitad de la lógica.</li>
+    </ul>
+  </li>
+</ul>
+<hr data-start="9488" data-end="9491">
+<h2 data-start="9493" data-end="9506">9. Entrega</h2>
+<p data-start="9508" data-end="9532">La entrega debe incluir:</p>
+<ol data-start="9534" data-end="10192">
+  <li data-start="9534" data-end="9663"><strong data-start="9537"
+      data-end="9563">Código fuente completo</strong> del proyecto (estructura
+    de paquetes clara: <code data-start="9608" data-end="9615">model</code>,
+    <code data-start="9617" data-end="9622">dao</code>, <code data-start="9624"
+      data-end="9633">manager</code>, <code data-start="9635"
+      data-end="9647">controller</code>, <code data-start="9649"
+      data-end="9655">view</code>, etc.).</li>
+  <li data-start="9664" data-end="9884">Ficheros incluidos en el proyecto:
+    <ul data-start="9680" data-end="9884">
+      <li data-start="9680" data-end="9781"><code data-start="9682"
+          data-end="9694">songs.json</code> (con un conjunto razonable de
+        canciones de prueba, al menos 8–10, de distintos moods).</li>
+      <li data-start="9785" data-end="9884"><code data-start="9787"
+          data-end="9803">playlists.json</code> (con algunas playlists de
+        ejemplo, incluida al menos una playlist reproducible).</li>
+    </ul>
+  </li>
+  <li data-start="9885" data-end="10004"><strong data-start="9888"
+      data-end="9914">Diagrama UML de clases</strong>:
+    <ul data-start="9919" data-end="10004">
+      <li data-start="9919" data-end="10004">Debe reflejar las clases
+        principales, relaciones y jerarquías de herencia/interfaz.</li>
+    </ul>
+  </li>
+  <li data-start="10005" data-end="10192">(Opcional pero muy recomendable) Un
+    <strong data-start="10044" data-end="10057">README.md</strong> con:
+    <ul data-start="10066" data-end="10192">
+      <li data-start="10066" data-end="10105">Instrucciones para
+        compilar/ejecutar.</li>
+      <li data-start="10109" data-end="10127">Ejemplos de uso.</li>
+      <li data-start="10131" data-end="10192">Explicación breve de cómo se ha
+        estructurado la aplicación.</li>
+    </ul>
+  </li>
+  <li>Memoria.</li>
+</ol>
+<ul>
+  <li style="list-style-type: none;">
+    <ul>
+      <li class="code-line" dir="auto" data-line="415">La memoria del proyecto
+        tiene que incluir los siguientes apartados:
+        <ul>
+          <li>Portada</li>
+          <li>Indice</li>
+          <li>Resumen del <a class="autolink" title="Enunciado"
+              href="https://estudy2425.salle.url.edu/mod/resource/view.php?id=95363">enunciado</a>
+          </li>
+          <li>Diagrama de clases <a class="autolink" title="UML"
+              href="https://estudy2425.salle.url.edu/course/section.php?id=16683">UML</a>
+          </li>
+          <li>Explicación del diagrama de clases diseñado. Es necesario explicar
+            el porqué de las cosas. Qué decisiones de diseño habéis tomado, que
+            patrones habéis seguido, ventajas e inconvenientes, cosas a mejorar,
+            problemas que os hayáis encontrado al implementar.</li>
+          <li>Opcionales y extras. Explicación de todo aquello que hayáis
+            implementado que no sea estrictamente necesario o no esté en el <a
+              class="autolink" title="Enunciado"
+              href="https://estudy2425.salle.url.edu/mod/resource/view.php?id=95363">enunciado</a> (si
+            fuera el caso).</li>
+          <li>Pruebas. Qué pruebas habéis realizado, cómo habéis verificado que
+            se esté ejecutando correctamente la aplicación.</li>
+          <li>Dedicación en horas. Estimación detallada del tiempo dedicado al
+            proyecto</li>
+          <li>Conclusiones (a nivel personal y a nivel técnico)</li>
+          <li>Bibliografía (según la norma ISO69:2010 o APA 6th)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p data-line="428" class="code-line" dir="auto" style="padding-left: 80px;">La
+  mala redacción, faltas de ortografía y errores gramaticales pueden influenciar
+  negativamente a la nota.</p>
+<p style="padding-left: 80px;"></p>
+<blockquote data-start="10194" data-end="10419">
+  <p data-start="10196" data-end="10419"><strong data-start="10196"
+      data-end="10210">Uso de IA:</strong><br data-start="10210"
+      data-end="10213">Si utilizáis herramientas de IA para este proyecto,
+    recordad que debéis indicarlo explícitamente según la guía académica (qué
+    habéis pedido y cómo lo habéis usado).</p>
+</blockquote>
+<p data-start="10421" data-end="10491"></p>
+<h3 data-start="10421" data-end="10491"><strong data-start="10421"
+    data-end="10438">Fecha límite:</strong><strong> 28 de Mayo de 2026</strong>
+</h3>
+<p data-start="10421" data-end="10491"></p>
+<hr data-start="10493" data-end="10496">
+<h2 data-start="10498" data-end="10529">10. Evaluación (orientativa)</h2>
+<ul>
+  <li data-start="10590" data-end="10742">
+    <p data-start="10592" data-end="10629"><strong data-start="10592"
+        data-end="10629">Diseño orientado a objetos (20 %)</strong></p>
+    <ul>
+      <li data-start="10634" data-end="10659">Encapsulamiento correcto.</li>
+      <li data-start="10664" data-end="10700">Herencia, polimorfismo e
+        interfaces.</li>
+      <li data-start="10705" data-end="10742">Cohesión y bajo acoplamiento
+        (GRASP).</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li data-start="10744" data-end="10908">
+    <p data-start="10746" data-end="10786"><strong data-start="10746"
+        data-end="10786">Arquitectura por capas y DAOs (20 %)</strong></p>
+    <ul>
+      <li data-start="10791" data-end="10850">Separación clara Model / DAO /
+        Manager / Controller / View.</li>
+      <li data-start="10855" data-end="10908">Uso correcto de interfaces DAO +
+        implementación JSON.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li data-start="10910" data-end="11087">
+    <p data-start="10912" data-end="10958"><strong data-start="10912"
+        data-end="10958">Persistencia y funcionalidad básica (25 %)</strong></p>
+    <ul>
+      <li data-start="10963" data-end="10993">Gestión completa de canciones.
+      </li>
+      <li data-start="10998" data-end="11019">Gestión de playlists.</li>
+      <li data-start="11024" data-end="11087">Lectura/escritura coherente de
+        <code data-start="11055" data-end="11067">songs.json</code> y <code
+          data-start="11070" data-end="11086">playlists.json</code>.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li data-start="11089" data-end="11276">
+    <p data-start="11091" data-end="11129"><strong data-start="11091"
+        data-end="11129">Reproducción y álbum random (25 %)</strong></p>
+    <ul>
+      <li data-start="11134" data-end="11174">Reproducción fiable con el
+        sintetizador.</li>
+      <li data-start="11179" data-end="11229">Diferenciación entre canciones
+        reproducibles y no.</li>
+      <li data-start="11234" data-end="11276">Generación de álbum por <code
+          data-start="11258" data-end="11264">mood</code> y duración.</li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li data-start="11280" data-end="11306"><strong data-start="11280"
+      data-end="11306">Calidad general (10 %)</strong></li>
+  <li style="list-style-type: none;">
+    <ul>
+      <li data-start="11311" data-end="11356">Legibilidad del código, nombres,
+        comentarios.</li>
+      <li data-start="11361" data-end="11390">Manejo de errores y robustez.</li>
+      <li data-start="11395" data-end="11427">Organización del proyecto y UML.
+      </li>
+    </ul>
+  </li>
+</ul>
+<p></p>
