@@ -22,6 +22,7 @@
 | 10  | [Sesión 10 - Herencia Múltiple, Interfaces y Arquitectura en Capas](session10/) | Problema del diamante, interfaz `Volador`, clases abstractas `Animal`/`Vehiculo`, patrón Controller, inyección de dependencias, arquitectura en capas | [partial-solution-sensors-biometrics](session10/partial-solution-sensors-biometrics/) |
 | 11  | [Sesión 11 - Excepciones en Java](session11/) | Concepto de excepción, jerarquía `Throwable`, `try`/`catch`/`finally`, `RuntimeException`, valor centinela vs bucle de reintento, `throw`, limpieza del buffer del `Scanner` | [partial-solution-sensors-biometrics](session11/partial-solution-sensors-biometrics/) |
 | 12  | [Sesión 12 - Excepciones Propias en Java](session12/) | Excepciones checked vs unchecked, crear excepciones propias extendiendo `Exception`/`RuntimeException`, encapsular el mensaje de error, jerarquías de excepciones, orden de `catch` | [exceptional-project](session12/exceptional-project/) |
+| 13  | [Sesión 13 - Proyecto Final: laSallefy](session13/) | Revisión del SoundSynth (2 clases + enum), diagrama UML en clase, refactorización a clase abstracta + subclases (OCP), enum `Notes`, persistencia JSON con Gson, arquitectura en capas del proyecto final | [ENUNCIADO.md](session13/ENUNCIADO.md), [sound-synth-example](https://github.com/yurigo/sound-synth-example) |
 
 ---
 
@@ -79,4 +80,8 @@ PEI-2526/
 └── session12/          # Excepciones Propias en Java
     ├── README.md                # Teoría completa: checked vs unchecked, jerarquías, encapsulación de mensajes
     └── exceptional-project/     # Ejemplo: MyExceptionalException, MoreThanTenException, LessThanZeroException, NumberFiveException
+└── session13/          # Proyecto Final: laSallefy
+    ├── README.md                # Teoría: SoundSynth abstracta, refactorización enum→subclases, Gson/JSON, arquitectura laSallefy
+    ├── ENUNCIADO.md             # Enunciado completo del proyecto final (generado desde HTML del campus)
+    └── ENUNCIADO.html           # Enunciado original en HTML del campus eStudy
 ```
