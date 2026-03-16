@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2080" height="690" viewBox="0 0 2080 690">
+  <defs>
+    <marker id="inh" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="white" stroke="#666666" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="2080" height="690" fill="white"/>
+  <path d="M 275,164 L 275,122 L 1020,122 L 1020,80" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1100,164 L 1100,122 L 1020,122 L 1020,80" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 150,319 L 150,269 L 275,269 L 275,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 340,319 L 340,269 L 275,269 L 275,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 70,474 L 70,424 L 150,424 L 150,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 235,474 L 235,424 L 150,424 L 150,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 545,319 L 545,269 L 1100,269 L 1100,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 710,319 L 710,269 L 1100,269 L 1100,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 875,319 L 875,269 L 1100,269 L 1100,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1042,319 L 1042,269 L 1100,269 L 1100,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1622,319 L 1622,269 L 1100,269 L 1100,220" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 545,474 L 545,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 968,474 L 968,424 L 1042,424 L 1042,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1135,474 L 1135,424 L 1042,424 L 1042,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1305,474 L 1305,424 L 1622,424 L 1622,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1462,474 L 1462,424 L 1622,424 L 1622,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1618,474 L 1618,424 L 1622,424 L 1622,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1778,474 L 1778,424 L 1622,424 L 1622,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <path d="M 1938,474 L 1938,424 L 1622,424 L 1622,375" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#inh)"/>
+  <rect x="944" y="24" width="152" height="56" rx="4" fill="#FFFFC0" stroke="#B8A000" stroke-width="1.5"/>
+  <text x="1020" y="36" text-anchor="middle" font-size="8.5" font-style="italic" fill="#444444" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1020" y="54" text-anchor="middle" font-size="12" font-weight="bold" fill="#444444" font-family="Arial, sans-serif">Throwable</text>
+  <text x="1020" y="69" text-anchor="middle" font-size="8.5" font-style="italic" fill="#444444" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="199" y="164" width="152" height="56" rx="4" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="275" y="176" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="275" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="#880000" font-family="Arial, sans-serif">Error</text>
+  <text x="275" y="209" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="1024" y="164" width="152" height="56" rx="4" fill="#FFFFC0" stroke="#B8A000" stroke-width="1.5"/>
+  <text x="1100" y="176" text-anchor="middle" font-size="8.5" font-style="italic" fill="#444444" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1100" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="#444444" font-family="Arial, sans-serif">Exception</text>
+  <text x="1100" y="209" text-anchor="middle" font-size="8.5" font-style="italic" fill="#444444" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="74" y="319" width="152" height="56" rx="4" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="150" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="150" y="349" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#880000" font-family="Arial, sans-serif">VirtualMachineError</text>
+  <text x="150" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="264" y="319" width="152" height="56" rx="4" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="340" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="340" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#880000" font-family="Arial, sans-serif">AssertionError</text>
+  <text x="340" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="-6" y="474" width="152" height="56" rx="4" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="70" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="70" y="504" text-anchor="middle" font-size="12" font-weight="bold" fill="#880000" font-family="Arial, sans-serif">OutOfMemoryError</text>
+  <text x="70" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="159" y="474" width="152" height="56" rx="4" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="235" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="235" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#880000" font-family="Arial, sans-serif">StackOverflowError</text>
+  <text x="235" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#880000" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="469" y="319" width="152" height="56" rx="4" fill="#D5EEFF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="545" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="545" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#003399" font-family="Arial, sans-serif">IOException</text>
+  <text x="545" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">java.io</text>
+  <rect x="634" y="319" width="152" height="56" rx="4" fill="#D5EEFF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="710" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="710" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#003399" font-family="Arial, sans-serif">SQLException</text>
+  <text x="710" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">java.sql</text>
+  <rect x="799" y="319" width="152" height="56" rx="4" fill="#D5EEFF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="875" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="875" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#003399" font-family="Arial, sans-serif">ParseException</text>
+  <text x="875" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">java.text</text>
+  <rect x="966" y="319" width="152" height="56" rx="4" fill="#D8FFD8" stroke="#008800" stroke-width="1.5"/>
+  <text x="1042" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1042" y="349" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#005500" font-family="Arial, sans-serif">MyExceptionalException</text>
+  <text x="1042" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">custom</text>
+  <rect x="1546" y="319" width="152" height="56" rx="4" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="1622" y="331" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1622" y="349" text-anchor="middle" font-size="12" font-weight="bold" fill="#7A3E00" font-family="Arial, sans-serif">RuntimeException</text>
+  <text x="1622" y="364" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="469" y="474" width="152" height="56" rx="4" fill="#D5EEFF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="545" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="545" y="504" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#003399" font-family="Arial, sans-serif">FileNotFoundException</text>
+  <text x="545" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#003399" font-family="Arial, sans-serif">java.io</text>
+  <rect x="892" y="474" width="152" height="56" rx="4" fill="#D8FFD8" stroke="#008800" stroke-width="1.5"/>
+  <text x="968" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="968" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#005500" font-family="Arial, sans-serif">MoreThanTenException</text>
+  <text x="968" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">custom</text>
+  <rect x="1059" y="474" width="152" height="56" rx="4" fill="#D8FFD8" stroke="#008800" stroke-width="1.5"/>
+  <text x="1135" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1135" y="504" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#005500" font-family="Arial, sans-serif">LessThanZeroException</text>
+  <text x="1135" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">custom</text>
+  <rect x="1229" y="474" width="152" height="56" rx="4" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="1305" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1305" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7A3E00" font-family="Arial, sans-serif">NullPointerException</text>
+  <text x="1305" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="1386" y="474" width="152" height="56" rx="4" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="1462" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1462" y="504" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7A3E00" font-family="Arial, sans-serif">NumberFormatException</text>
+  <text x="1462" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="1542" y="474" width="152" height="56" rx="4" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="1618" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1618" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7A3E00" font-family="Arial, sans-serif">ArithmeticException</text>
+  <text x="1618" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="1702" y="474" width="152" height="56" rx="4" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="1778" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1778" y="504" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7A3E00" font-family="Arial, sans-serif">IllegalArgumentException</text>
+  <text x="1778" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#7A3E00" font-family="Arial, sans-serif">java.lang</text>
+  <rect x="1862" y="474" width="152" height="56" rx="4" fill="#D8FFD8" stroke="#008800" stroke-width="1.5"/>
+  <text x="1938" y="486" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">&lt;&lt;Java Class&gt;&gt;</text>
+  <text x="1938" y="504" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#005500" font-family="Arial, sans-serif">NumberFiveException</text>
+  <text x="1938" y="519" text-anchor="middle" font-size="8.5" font-style="italic" fill="#005500" font-family="Arial, sans-serif">custom</text>
+  <rect x="12" y="544" width="290" height="118" rx="5" fill="white" stroke="#AAAAAA" stroke-width="1"/>
+  <text x="20" y="560" font-size="11" font-weight="bold" fill="#333333" font-family="Arial, sans-serif">Leyenda:</text>
+  <rect x="22" y="574" width="18" height="13" rx="2" fill="#FFD5D5" stroke="#CC0000" stroke-width="1.5"/>
+  <text x="48" y="584" font-size="10" fill="#333333" font-family="Arial, sans-serif">Error (no se captura normalmente)</text>
+  <rect x="22" y="598" width="18" height="13" rx="2" fill="#D5EEFF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="48" y="608" font-size="10" fill="#333333" font-family="Arial, sans-serif">Checked Exception (compilador obliga a tratar)</text>
+  <rect x="22" y="622" width="18" height="13" rx="2" fill="#FFE8CC" stroke="#CC6600" stroke-width="1.5"/>
+  <text x="48" y="632" font-size="10" fill="#333333" font-family="Arial, sans-serif">Unchecked / RuntimeException</text>
+  <rect x="22" y="646" width="18" height="13" rx="2" fill="#D8FFD8" stroke="#008800" stroke-width="1.5"/>
+  <text x="48" y="656" font-size="10" fill="#333333" font-family="Arial, sans-serif">Excepción propia del proyecto</text>
+</svg>

@@ -21,6 +21,7 @@
 | 9   | [Sesión 09 - Interfaces en Java](session09/) | Interfaces (`interface`/`implements`), separación qué/cómo, patrón DAO, `List` como interfaz, `ArrayList`/`Vector`/`MySuperList`, principios OCP y DIP | [interface-examples](session09/interface-examples/) |
 | 10  | [Sesión 10 - Herencia Múltiple, Interfaces y Arquitectura en Capas](session10/) | Problema del diamante, interfaz `Volador`, clases abstractas `Animal`/`Vehiculo`, patrón Controller, inyección de dependencias, arquitectura en capas | [partial-solution-sensors-biometrics](session10/partial-solution-sensors-biometrics/) |
 | 11  | [Sesión 11 - Excepciones en Java](session11/) | Concepto de excepción, jerarquía `Throwable`, `try`/`catch`/`finally`, `RuntimeException`, valor centinela vs bucle de reintento, `throw`, limpieza del buffer del `Scanner` | [partial-solution-sensors-biometrics](session11/partial-solution-sensors-biometrics/) |
+| 12  | [Sesión 12 - Excepciones Propias en Java](session12/) | Excepciones checked vs unchecked, crear excepciones propias extendiendo `Exception`/`RuntimeException`, encapsular el mensaje de error, jerarquías de excepciones, orden de `catch` | [exceptional-project](session12/exceptional-project/) |
 
 ---
 
@@ -75,4 +76,7 @@ PEI-2526/
     ├── README.md                # Teoría completa: try/catch/finally, RuntimeException, valor centinela vs bucle de reintento
     └── partial-solution-sensors-biometrics/  # Boilerplate AC2 con manejo de excepciones en getInteger y Controller
         └── src/                 # Main, Controller, Medida, Menu, MenuConsole, MenuConsoleSuperior, DAOMedida, DAOMedidaCSVFile
+└── session12/          # Excepciones Propias en Java
+    ├── README.md                # Teoría completa: checked vs unchecked, jerarquías, encapsulación de mensajes
+    └── exceptional-project/     # Ejemplo: MyExceptionalException, MoreThanTenException, LessThanZeroException, NumberFiveException
 ```
