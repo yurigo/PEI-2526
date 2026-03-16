@@ -14,7 +14,7 @@
 | 2   | [Sesión 02 - Programación Orientada a Objetos](session02/) | Clases y objetos, atributos, métodos, encapsulamiento, constructores        | [gimnasio](session02/gimnasio/)                                            |
 | 3   | [Sesión 03 - Encapsulamiento y Principios de Diseño](session03/) | Modificadores de acceso, getters/setters, principios GRASP, static, toString() | [pokedex](session03/pokedex/), [gimnasio](session03/gimnasio/), [mercado](session03/mercado/) |
 | 4   | [Sesión 04 - Colecciones y Lectura de Archivos](session04/) | ArrayList, FileReader, BufferedReader, try/catch, manejo de excepciones | [mercado-con-arraylist](session04/mercado-con-arraylist/), [mercado-con-ficheros](session04/mercado-con-ficheros/) |
-| 5   | [Sesión 05 - Actividad 1: Sensors Biomètrics](session05/) | Primera actividad práctica: aplicación de consola con menú, procesamiento de sensores biomètricos, lectura/escritura CSV | Actividad: Sistema de gestión de medidas de sensores |
+| 5   | [Sesión 05 - AC1: Sensors Biomètrics](session05/) | Primera actividad práctica: aplicación de consola con menú, procesamiento de sensores biomètricos, lectura/escritura CSV | AC1: Sistema de gestión de medidas de sensores |
 | 6   | [Sesión 06 - Relaciones entre Clases](session06/) | Relaciones UML: Dependencia, Asociación, Agregación, Composición, Cardinalidad, Direccionalidad | [Ejercicios UML](session06/ejercicios/): UMLtoJAVA, TEXTtoUML, Questions |
 | 7   | [Sesión 07 - Herencia y Polimorfismo](session07/) | Repaso relaciones, Herencia, Casting, instanceof, Polimorfismo, Sobrecarga, Clases Abstractas | [aggregation example](session07/aggregation%20example/), [composition example](session07/composition%20example/), [zoo example](session07/zoo%20example/) |
 | 8   | [Sesión 08 - Herencia, Visibilidad y Polimorfismo](session08/) | Herencia en cadena, Modificadores de acceso (private/public/protected/package), Polimorfismo vertical (sobrescritura), Polimorfismo horizontal (sobrecarga) | [area-perimeter-calculator](session08/area-perimeter-calculator/) |
@@ -22,6 +22,26 @@
 | 10  | [Sesión 10 - Herencia Múltiple, Interfaces y Arquitectura en Capas](session10/) | Problema del diamante, interfaz `Volador`, clases abstractas `Animal`/`Vehiculo`, patrón Controller, inyección de dependencias, arquitectura en capas | [partial-solution-sensors-biometrics](session10/partial-solution-sensors-biometrics/) |
 | 11  | [Sesión 11 - Excepciones en Java](session11/) | Concepto de excepción, jerarquía `Throwable`, `try`/`catch`/`finally`, `RuntimeException`, valor centinela vs bucle de reintento, `throw`, limpieza del buffer del `Scanner` | [partial-solution-sensors-biometrics](session11/partial-solution-sensors-biometrics/) |
 | 12  | [Sesión 12 - Excepciones Propias en Java](session12/) | Excepciones checked vs unchecked, crear excepciones propias extendiendo `Exception`/`RuntimeException`, encapsular el mensaje de error, jerarquías de excepciones, orden de `catch` | [exceptional-project](session12/exceptional-project/) |
+
+---
+
+## Evaluación – Fechas Importantes
+
+| Evento                          | Fecha                         | Hora        |
+| ------------------------------- | ----------------------------- | ----------- |
+| 📝 Examen teórico final ordinario | 27 de mayo de 2026           | 10:00       |
+| 📦 Entrega del Proyecto           | 28 de mayo de 2026           | 23:59       |
+| 🎤 Entrevista del Proyecto        | 9 de junio de 2026           | 10:00       |
+
+---
+
+## Actividades y Proyecto
+
+| #         | Enunciado                                                                     | Descripción                                                                                   |
+| --------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **AC1**   | [Enunciado AC1 – Sensors Biomètrics](session05/README.md)                     | Aplicación de consola con menú, lectura/escritura CSV, clase `Mesura` con id autoincremental  |
+| **AC2**   | [Enunciado AC2 – Arquitectura en Capas](session10/ACTIVIDAD.md)               | Refactor de AC1 a arquitectura en capas: Model, DAO, Controller, Vista                        |
+| **PROYECTO** | Enunciado del Proyecto *(próximamente)*                                    | Proyecto final integrador de los contenidos del curso                                         |
 
 ---
 
@@ -46,8 +66,8 @@ PEI-2526/
 │   ├── README.md
 │   ├── mercado-con-arraylist/  # Proyecto: Productos con ArrayList
 │   └── mercado-con-ficheros/   # Proyecto: Lectura de productos desde CSV
-├── session05/          # Actividad 1: Sensors Biomètrics
-│   └── README.md       # Enunciado de la primera actividad práctica
+├── session05/          # AC1: Sensors Biomètrics
+│   └── README.md       # Enunciado de la primera actividad práctica (AC1)
 └── session06/          # Relaciones entre Clases
     ├── README.md       # Teoría completa sobre relaciones UML
     └── ejercicios/     # Ejercicios prácticos
