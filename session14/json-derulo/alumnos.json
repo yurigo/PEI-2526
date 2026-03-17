@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Alice",
+    "edad": 20,
+    "aprobado": true
+  },
+  {
+    "nombre": "Bob",
+    "edad": 20,
+    "aprobado": false
+  },
+  {
+    "nombre": "Charlie",
+    "edad": 80,
+    "aprobado": true
+  },
+  {
+    "nombre": "Dave",
+    "edad": 3,
+    "aprobado": true
+  }
+]
