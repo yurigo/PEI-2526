@@ -9,6 +9,12 @@ public class Alumno {
     private int edad;
     private boolean aprobado;
 
+    public Alumno(String nombre, int edad, boolean aprobado) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.aprobado = aprobado;
+    }
+
     @Override
     public String toString() {
         return colorAprobado() + "mi nombre es: " + nombre + " y tengo " + edad + " años y " + estoyAprobado() + ANSI_RESET;

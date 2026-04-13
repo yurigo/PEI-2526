@@ -23,6 +23,9 @@
 | 11  | [Sesión 11 - Excepciones en Java](session11/) | Concepto de excepción, jerarquía `Throwable`, `try`/`catch`/`finally`, `RuntimeException`, valor centinela vs bucle de reintento, `throw`, limpieza del buffer del `Scanner` | [partial-solution-sensors-biometrics](session11/partial-solution-sensors-biometrics/) |
 | 12  | [Sesión 12 - Excepciones Propias en Java](session12/) | Excepciones checked vs unchecked, crear excepciones propias extendiendo `Exception`/`RuntimeException`, encapsular el mensaje de error, jerarquías de excepciones, orden de `catch` | [exceptional-project](session12/exceptional-project/) |
 | 13  | [Sesión 13 - Proyecto Final: laSallefy](session13/) | Revisión del SoundSynth (2 clases + enum), diagrama UML en clase, refactorización a clase abstracta + subclases (OCP), enum `Notes`, persistencia JSON con Gson, arquitectura en capas del proyecto final | [ENUNCIADO.md](session13/ENUNCIADO.md), [sound-synth-example](https://github.com/yurigo/sound-synth-example) |
+| 14  | [Sesión 14 - JSON y Gson en Java](session14/) | Tipos de datos JSON, sintaxis correcta/incorrecta, serialización y deserialización, JSON vs XML, lectura/escritura con Gson, miniproyecto `json-derulo` | [json-derulo](session14/json-derulo/) |
+| 15  | [Sesión 15 - Diagrama de Clases de laSallefy](session15/) | Actividad: diseño a mano del diagrama de clases del proyecto final; guía de relaciones UML (composición, agregación, herencia, realización), modelo de dominio completo | – |
+| 16  | [Sesión 16 - Modelo de Negocio laSallefy: JSON y UML](session16/) | Diagrama de clases en pizarra (Song, Sound, Playlist, enums), relaciones composición/agregación, implementación `songs.json` y `playlists.json`, patrón DAO con Gson | [songs.json](session16/songs.json), [playlists.json](session16/playlists.json) |
 
 ---
 
@@ -104,4 +107,17 @@ PEI-2526/
     ├── README.md                # Teoría: SoundSynth abstracta, refactorización enum→subclases, Gson/JSON, arquitectura laSallefy
     ├── ENUNCIADO.md             # Enunciado completo del proyecto final (generado desde HTML del campus)
     └── ENUNCIADO.html           # Enunciado original en HTML del campus eStudy
+└── session14/          # JSON y Gson en Java
+    ├── README.md                # Teoría completa: tipos JSON, sintaxis, serialización/deserialización, XML vs JSON, Gson
+    ├── gson-2.13.2.jar          # Librería Gson (añadir al classpath del proyecto)
+    └── json-derulo/             # Miniproyecto: lectura, creación y escritura de alumnos con Gson
+        ├── alumno.json          # JSON con un único alumno
+        ├── alumnos.json         # JSON con array de alumnos
+        └── src/                 # Alumno.java (modelo) y Main.java (lectura/creación/escritura)
+└── session15/          # Diagrama de Clases de laSallefy
+    └── README.md                # Guía completa del diagrama UML: modelo, DAO, SoundSynth, relaciones, criterios
+└── session16/          # Modelo de Negocio laSallefy: JSON y UML
+    ├── README.md                # Diagrama pizarra, composición Song↔Sound, agregación Playlist↔Song, DAO con Gson
+    ├── songs.json               # 10 canciones de prueba de distintos moods (ejemplo para el proyecto)
+    └── playlists.json           # 4 playlists de ejemplo incluyendo una generada aleatoriamente
 ```
