@@ -69,9 +69,19 @@ El núcleo del sistema son las clases `Song` y `Playlist`:
 │ + getTotalDuration(songs): int       │
 │ + countPlayable(songs): int          │
 └──────────────────────────────────────┘
+         ◇ (agregación) 0..*
+         │
+         ▼
+┌──────────────────────────────────────┐
+│                Song                  │
+├──────────────────────────────────────┤
+│ - id: String                         │
+│ - title: String                      │
+│  · · ·                               │
+└──────────────────────────────────────┘
 ```
 
-> 💡 `Playlist` guarda **solo los IDs** de las canciones (no los objetos `Song`). Esto es **agregación por referencia**: la playlist "conoce" las canciones pero no las contiene físicamente.
+> 💡 `Playlist` guarda **solo los IDs** de las canciones (no los objetos `Song`). Esto es **agregación por referencia**: la playlist "conoce" las canciones pero no las contiene físicamente. A diferencia de la composición (◆), las canciones existen de forma independiente a la playlist.
 
 ### 2.2. Enumeraciones
 
@@ -94,15 +104,16 @@ ENERGETIC                GAME
          ├──────────────────────────────────┤
          │ + makeSound(freq: int,           │
          │             durationMs: int)     │
-         └──────────────┬───────────────────┘
-                        │ herencia
-         ┌──────────────┼──────────────┐
-         ▼              ▼              ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│SoundSynthSine│ │SoundSynthSquare│ │SoundSynthTriangle│
-├──────────────┤ ├──────────────┤ ├──────────────┤
-│+makeSound(…) │ │+makeSound(…) │ │+makeSound(…) │
-└──────────────┘ └──────────────┘ └──────────────┘
+         └──────────────────────────────────┘
+                          △
+                          │
+          ┌───────────────┼───────────────┐
+          │               │               │
+┌─────────┴──────┐ ┌──────┴───────┐ ┌────┴─────────────┐
+│SoundSynthSine  │ │SoundSynthSquare│ │SoundSynthTriangle│
+├────────────────┤ ├──────────────┤ ├──────────────────┤
+│+makeSound(…)   │ │+makeSound(…) │ │+makeSound(…)     │
+└────────────────┘ └──────────────┘ └──────────────────┘
 ```
 
 ### 2.4. Capa DAO
