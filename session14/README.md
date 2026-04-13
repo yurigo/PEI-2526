@@ -1,3 +1,5 @@
+(17 marzo).
+
 Se ha pedido crear en grupos de 2/3 personas una presentación sobre JSON.
 
 Se han pedido conceptos como:
