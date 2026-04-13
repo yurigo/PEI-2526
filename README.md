@@ -42,7 +42,7 @@
 | --------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **AC1**   | [Enunciado AC1 – Sensors Biomètrics](session05/README.md)                     | Aplicación de consola con menú, lectura/escritura CSV, clase `Mesura` con id autoincremental  |
 | **AC2**   | [Enunciado AC2 – Arquitectura en Capas](session10/ACTIVIDAD.md)               | Refactor de AC1 a arquitectura en capas: Model, DAO, Controller, Vista                        |
-| **PROYECTO** | Enunciado del Proyecto *(próximamente)*                                    | Proyecto final integrador de los contenidos del curso                                         |
+| **PROYECTO** | [Enunciado del Proyecto Final – laSallefy](session13/ENUNCIADO.md)         | Proyecto final integrador: reproductor musical con SoundSynth, playlists, persistencia JSON y arquitectura en capas |
 
 ---
 
