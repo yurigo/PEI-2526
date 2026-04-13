@@ -1,0 +1,138 @@
+[
+  {
+    "id": "s001",
+    "title": "Happy Birthday",
+    "artist": "Tradicional",
+    "durationSeconds": 15,
+    "mood": "HAPPY",
+    "style": "CLASSICAL",
+    "playable": true,
+    "sounds": [
+      { "frequency": 264, "durationMs": 300, "timbre": "SINE" },
+      { "frequency": 264, "durationMs": 300, "timbre": "SINE" },
+      { "frequency": 297, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 264, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 352, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 330, "durationMs": 1200, "timbre": "SINE" }
+    ]
+  },
+  {
+    "id": "s002",
+    "title": "Ambient Drift",
+    "artist": "SynthLab",
+    "durationSeconds": 180,
+    "mood": "RELAX",
+    "style": "AMBIENT",
+    "playable": false,
+    "sounds": []
+  },
+  {
+    "id": "s003",
+    "title": "Chiptune Rush",
+    "artist": "8BitMaster",
+    "durationSeconds": 120,
+    "mood": "ENERGETIC",
+    "style": "CHIPTUNE",
+    "playable": true,
+    "sounds": [
+      { "frequency": 440, "durationMs": 150, "timbre": "SQUARE" },
+      { "frequency": 494, "durationMs": 150, "timbre": "SQUARE" },
+      { "frequency": 523, "durationMs": 150, "timbre": "SQUARE" },
+      { "frequency": 587, "durationMs": 150, "timbre": "SQUARE" },
+      { "frequency": 659, "durationMs": 300, "timbre": "SQUARE" },
+      { "frequency": 784, "durationMs": 300, "timbre": "SQUARE" }
+    ]
+  },
+  {
+    "id": "s004",
+    "title": "Rainy Day",
+    "artist": "CloudSound",
+    "durationSeconds": 240,
+    "mood": "SAD",
+    "style": "AMBIENT",
+    "playable": false,
+    "sounds": []
+  },
+  {
+    "id": "s005",
+    "title": "Sunrise",
+    "artist": "NatureBeats",
+    "durationSeconds": 90,
+    "mood": "HAPPY",
+    "style": "AMBIENT",
+    "playable": true,
+    "sounds": [
+      { "frequency": 330, "durationMs": 400, "timbre": "SINE" },
+      { "frequency": 370, "durationMs": 400, "timbre": "SINE" },
+      { "frequency": 415, "durationMs": 400, "timbre": "SINE" },
+      { "frequency": 494, "durationMs": 800, "timbre": "SINE" }
+    ]
+  },
+  {
+    "id": "s006",
+    "title": "Boss Battle",
+    "artist": "GameAudio",
+    "durationSeconds": 95,
+    "mood": "ENERGETIC",
+    "style": "GAME",
+    "playable": true,
+    "sounds": [
+      { "frequency": 110, "durationMs": 200, "timbre": "SAWTOOTH" },
+      { "frequency": 147, "durationMs": 200, "timbre": "SAWTOOTH" },
+      { "frequency": 165, "durationMs": 200, "timbre": "SAWTOOTH" },
+      { "frequency": 220, "durationMs": 400, "timbre": "SAWTOOTH" }
+    ]
+  },
+  {
+    "id": "s007",
+    "title": "Nocturne en Do menor",
+    "artist": "PianoAI",
+    "durationSeconds": 200,
+    "mood": "SAD",
+    "style": "CLASSICAL",
+    "playable": false,
+    "sounds": []
+  },
+  {
+    "id": "s008",
+    "title": "Dance Floor",
+    "artist": "ElectroVibes",
+    "durationSeconds": 210,
+    "mood": "HAPPY",
+    "style": "CHIPTUNE",
+    "playable": true,
+    "sounds": [
+      { "frequency": 220, "durationMs": 200, "timbre": "SQUARE" },
+      { "frequency": 277, "durationMs": 200, "timbre": "SQUARE" },
+      { "frequency": 330, "durationMs": 200, "timbre": "SQUARE" },
+      { "frequency": 440, "durationMs": 400, "timbre": "SQUARE" },
+      { "frequency": 330, "durationMs": 200, "timbre": "SQUARE" },
+      { "frequency": 277, "durationMs": 200, "timbre": "SQUARE" }
+    ]
+  },
+  {
+    "id": "s009",
+    "title": "Zen Garden",
+    "artist": "MindfulTones",
+    "durationSeconds": 300,
+    "mood": "RELAX",
+    "style": "AMBIENT",
+    "playable": true,
+    "sounds": [
+      { "frequency": 196, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 220, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 246, "durationMs": 600, "timbre": "SINE" },
+      { "frequency": 261, "durationMs": 1200, "timbre": "SINE" }
+    ]
+  },
+  {
+    "id": "s010",
+    "title": "Sprint Theme",
+    "artist": "GameAudio",
+    "durationSeconds": 60,
+    "mood": "ENERGETIC",
+    "style": "GAME",
+    "playable": false,
+    "sounds": []
+  }
+]

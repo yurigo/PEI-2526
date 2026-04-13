@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p001",
+    "name": "Morning Vibes",
+    "description": "Canciones para empezar el día con energía positiva",
+    "mood": "HAPPY",
+    "songIds": ["s001", "s005", "s008"],
+    "random": false
+  },
+  {
+    "id": "p002",
+    "name": "Chill Out",
+    "description": "Ambiente relajante para estudiar o descansar",
+    "mood": "RELAX",
+    "songIds": ["s002", "s009"],
+    "random": false
+  },
+  {
+    "id": "p003",
+    "name": "Game Soundtrack",
+    "description": "Música de videojuegos para ponerse en modo gamer",
+    "mood": "ENERGETIC",
+    "songIds": ["s003", "s006", "s010"],
+    "random": false
+  },
+  {
+    "id": "p004",
+    "name": "Random RELAX – 10min",
+    "description": "Álbum generado automáticamente con canciones de mood RELAX",
+    "mood": "RELAX",
+    "songIds": ["s002", "s009"],
+    "random": true
+  }
+]
