@@ -26,7 +26,7 @@
 | 14  | [Sesión 14 - JSON y Gson en Java](session14/) | Tipos de datos JSON, sintaxis correcta/incorrecta, serialización y deserialización, JSON vs XML, lectura/escritura con Gson, miniproyecto `json-derulo` | [json-derulo](session14/json-derulo/) |
 | 15  | [Sesión 15 - Diagrama de Clases de laSallefy](session15/) | Actividad: diseño a mano del diagrama de clases del proyecto final; guía de relaciones UML (composición, agregación, herencia, realización), modelo de dominio completo | – |
 | 16  | [Sesión 16 - Modelo de Negocio laSallefy: JSON y UML](session16/) | Diagrama de clases en pizarra (Song, Sound, Playlist, enums), relaciones composición/agregación, implementación `songs.json` y `playlists.json`, patrón DAO con Gson | [songs.json](session16/songs.json), [playlists.json](session16/playlists.json) |
-| 17  | [Sesión 17 - Threads en Java](session17/) | Flipped classroom: qué es un Thread, `extends Thread` vs `implements Runnable`, condiciones de carrera, `synchronized`, `join()`, caso de uso reproductor de música en segundo plano | [thread-examples](session17/thread-examples/), [lasallefy-background-player](session17/lasallefy-background-player/) |
+| 17  | [Sesión 17 - Threads en Java](session17/) | Flipped classroom: qué es un Thread, `extends Thread` vs `implements Runnable`, condiciones de carrera, `synchronized`, `join()`, ejercicio reproductor de música en segundo plano | [thread-examples](session17/thread-examples/) |
 
 ---
 
@@ -122,12 +122,10 @@ PEI-2526/
     ├── songs.json               # 10 canciones de prueba de distintos moods (ejemplo para el proyecto)
     └── playlists.json           # 4 playlists de ejemplo incluyendo una generada aleatoriamente
 └── session17/          # Threads en Java
-    ├── README.md                # Teoría completa: Thread, Runnable, race conditions, synchronized, join, caso de uso laSallefy
-    ├── thread-examples/         # Ejemplos progresivos de Threads
-    │   ├── 01-extends-thread/   # Ejemplo: crear Thread extendiendo la clase Thread
-    │   ├── 02-implements-runnable/  # Ejemplo: crear Thread con Runnable y lambdas
-    │   ├── 03-race-condition/   # Ejemplo: condición de carrera sin sincronización
-    │   └── 04-synchronized/     # Ejemplo: solución con synchronized y join()
-    └── lasallefy-background-player/  # Ejercicio: reproductor de música en segundo plano
-        └── src/                 # Sound, Song, MusicPlayerThread, Main (menú interactivo)
+    ├── README.md                # Teoría completa: Thread, Runnable, race conditions, synchronized, join, ejercicio laSallefy
+    └── thread-examples/         # Ejemplos progresivos de Threads
+        ├── 01-extends-thread/   # Ejemplo: crear Thread extendiendo la clase Thread
+        ├── 02-implements-runnable/  # Ejemplo: crear Thread con Runnable y lambdas
+        ├── 03-race-condition/   # Ejemplo: condición de carrera sin sincronización
+        └── 04-synchronized/     # Ejemplo: solución con synchronized y join()
 ```

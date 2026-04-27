@@ -348,11 +348,9 @@ Sin `join()`, el Thread main podría imprimir el resultado **antes de que los Th
 
 ---
 
-## 7. Caso de Uso: Reproductor de Música en Segundo Plano (laSallefy)
+## 7. Ejercicio: Reproductor de Música en Segundo Plano (laSallefy)
 
 La tarea propuesta al final de la sesión consiste en aplicar Threads al proyecto final **laSallefy** para que la **reproducción de música** ocurra en un Thread separado, permitiendo que el usuario siga interactuando con el menú mientras la canción suena.
-
-📁 [`lasallefy-background-player/`](lasallefy-background-player/)
 
 ### Problema actual (sin Threads)
 
@@ -362,7 +360,7 @@ Main Thread:
 ```
 El menú queda **congelado** mientras la canción se reproduce.
 
-### Solución con Thread
+### Objetivo (con Thread)
 
 ```
 Main Thread:
@@ -373,73 +371,12 @@ MusicPlayerThread:                                        │
   synth.play(song)  [en paralelo, sin bloquear el menú]
 ```
 
-### Diseño: clase `MusicPlayerThread`
+### Pistas para la implementación
 
-```java
-public class MusicPlayerThread extends Thread {
-
-    private final SoundSynth synth;
-    private final Song song;
-    private volatile boolean running = true;
-
-    public MusicPlayerThread(SoundSynth synth, Song song) {
-        this.synth = synth;
-        this.song = song;
-    }
-
-    @Override
-    public void run() {
-        System.out.println("▶ Reproduciendo: " + song.getTitle());
-        for (Sound sound : song.getSounds()) {
-            if (!running) break;
-            synth.play(sound);
-        }
-        System.out.println("⏹ Reproducción finalizada.");
-    }
-
-    /** Permite detener la reproducción desde fuera del Thread */
-    public void stopPlayback() {
-        running = false;
-    }
-}
-```
-
-> 💡 La variable `running` se declara `volatile` para que los cambios hechos desde el Thread principal sean **visibles inmediatamente** en `MusicPlayerThread`.
-
-### Uso desde el `Controller`
-
-```java
-public class Controller {
-
-    private MusicPlayerThread playerThread;
-
-    public void playSong(Song song) {
-        if (playerThread != null && playerThread.isAlive()) {
-            playerThread.stopPlayback();
-        }
-        playerThread = new MusicPlayerThread(synth, song);
-        playerThread.start();  // no bloquea el hilo principal
-    }
-
-    public void stopSong() {
-        if (playerThread != null) {
-            playerThread.stopPlayback();
-        }
-    }
-}
-```
-
-### Flujo completo
-
-```
-                     ┌──────────────┐
-  Main ──► start() ──►│MusicPlayer   │──► synth.play(sound 1)
-                      │Thread        │──► synth.play(sound 2)
-                      │              │──► synth.play(sound 3)
-                      └──────────────┘
-  Main (continúa):
-    menu.show()  ──►  usuario elige "Stop"  ──►  playerThread.stopPlayback()
-```
+- Crea una clase `MusicPlayerThread` que extienda `Thread` y reciba el `SoundSynth` y la `Song`.
+- Usa una variable `volatile boolean` para poder detener la reproducción desde fuera del Thread.
+- En el `Controller`, guarda una referencia al Thread activo para poder llamar a `stopPlayback()` cuando el usuario lo pida.
+- Usa `join()` si necesitas esperar a que el Thread anterior haya terminado antes de iniciar uno nuevo.
 
 ---
 
